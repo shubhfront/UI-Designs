@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shubhfront | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <nav class="navbar">
+        <div class="logo">shubhfront<span>.me</span></div>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <section id="hero" class="hero">
+        <div class="blob"></div>
+        <div class="hero-content">
+          <h1>Crafting <span class="gradient-text">Digital</span> <br/> Experiences</h1>
+          <p>Hi, I'm Shubhfront. A creative developer focused on interactive, dynamic, and premium web design.</p>
+          <a href="#work" class="btn">Explore My Work</a>
+        </div>
+      </section>
+
+      <section id="work" class="work-section">
+        <div class="work-header">
+          <h2>Selected Work</h2>
+          <p>Scroll down to dive into my projects.</p>
+        </div>
+        <div class="canvas-3d">
+          <!-- 3D container -->
+          <div class="scene-3d">
+            <div class="project-card" data-index="0">
+              <div class="card-image" style="background: linear-gradient(135deg, #ff007f, #7f00ff);"></div>
+              <div class="card-info">
+                <h3>E-Commerce Reimagined</h3>
+                <p>Next-gen shopping experience with seamless transitions.</p>
+              </div>
+            </div>
+            <div class="project-card" data-index="1">
+              <div class="card-image" style="background: linear-gradient(135deg, #00f2fe, #4facfe);"></div>
+              <div class="card-info">
+                <h3>Fintech Dashboard</h3>
+                <p>Real-time data visualization with a dark, sleek aesthetic.</p>
+              </div>
+            </div>
+            <div class="project-card" data-index="2">
+              <div class="card-image" style="background: linear-gradient(135deg, #f6d365, #fda085);"></div>
+              <div class="card-info">
+                <h3>Social Platform</h3>
+                <p>Connecting people through beautiful, fluid interfaces.</p>
+              </div>
+            </div>
+            <div class="project-card" data-index="3">
+              <div class="card-image" style="background: linear-gradient(135deg, #16a085, #f4d03f);"></div>
+              <div class="card-info">
+                <h3>Creative Agency</h3>
+                <p>A bold and interactive showcase for digital agencies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="about-content">
+          <h2>About Me</h2>
+          <p>I blend design and engineering to build modern web applications. With a passion for performance, aesthetics, and user experience, I create products that stand out.</p>
+        </div>
+      </section>
+
+      <footer id="contact" class="footer">
+        <h2>Let's build something amazing.</h2>
+        <a href="mailto:hello@shubhfront.me" class="btn btn-outline">hello@shubhfront.me</a>
+        <p class="copyright">© 2026 Shubhfront. All rights reserved.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
