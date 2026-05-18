@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE INTERIORS</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main pinned container -->
+    <main id="main-container">
+        
+        <!-- Canvas for video frames -->
+        <canvas id="frame-canvas"></canvas>
+        
+        <!-- Gradient overlay for text readability -->
+        <div class="gradient-overlay"></div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+
+        <!-- Text Overlays -->
+        <div class="text-container" id="text-1">
+            <div class="subtitle">LUXE INTERIORS</div>
+            <h1 class="hero-title">Where Space<br>Tells a Story</h1>
+            <p class="body-text">Crafting living environments that reflect the art of refined living — every detail considered, every corner curated.</p>
+            <button class="cta-button">Explore Our Work</button>
+        </div>
+
+        <div class="text-container" id="text-2">
+            <div class="subtitle">LUXE INTERIORS</div>
+            <h1 class="hero-title">Designed to<br>Inspire Every Day</h1>
+            <p class="body-text">From statement kitchens to seamless open living — we design spaces where luxury meets life.</p>
+            <button class="cta-button">Book a Consultation</button>
+        </div>
+
+    </main>
+
+    <!-- SECTION 2: ABOUT / STUDIO INTRO -->
+    <section id="about" class="section">
+        <div class="container about-grid">
+            <div class="about-quote">
+                <h2>"We don't decorate spaces. We architect emotions."</h2>
+            </div>
+            <div class="about-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>12+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>340+</h3>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>28</h3>
+                        <p>Design Awards Won</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>15</h3>
+                        <p>Cities Across India</p>
+                    </div>
+                </div>
+                <div class="founder-card">
+                    <div class="founder-avatar">AM</div>
+                    <div class="founder-info">
+                        <h4>Arjun Mehta</h4>
+                        <p class="subtitle-small">Principal Designer & Founder</p>
+                        <p class="bio">"With a degree from NID Ahmedabad and a decade of crafting luxury residences across Mumbai, Delhi and Bangalore, Arjun brings a rare blend of spatial intelligence and artistic vision to every project."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: SERVICES + PRICING -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Services & Pricing</h2>
+                <p class="section-subtitle">TAILORED EXPERIENCES FOR EVERY SPACE</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Essential</h3>
+                        <div class="price">₹850 <span>/ sq.ft</span></div>
+                        <p class="tagline">"For the thoughtful homeowner"</p>
+                    </div>
+                    <ul class="features">
+                        <li>Space planning & layout</li>
+                        <li>Material & finish selection</li>
+                        <li>2D drawings</li>
+                        <li>On-site supervision</li>
+                        <li>30-day post handover support</li>
+                    </ul>
+                    <button class="btn btn-outline">Get Started</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="badge">Most Popular</div>
+                    <div class="card-header">
+                        <h3>Signature</h3>
+                        <div class="price">₹1,450 <span>/ sq.ft</span></div>
+                        <p class="tagline">"Our most loved package"</p>
+                    </div>
+                    <ul class="features">
+                        <li>Everything in Essential</li>
+                        <li>3D photorealistic renders</li>
+                        <li>Custom furniture design</li>
+                        <li>Dedicated project manager</li>
+                        <li>Smart home integration</li>
+                        <li>90-day post handover support</li>
+                    </ul>
+                    <button class="btn btn-primary">Book Consultation</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Prestige</h3>
+                        <div class="price">Custom</div>
+                        <p class="tagline">"For the truly extraordinary"</p>
+                    </div>
+                    <ul class="features">
+                        <li>Everything in Signature</li>
+                        <li>Full villa / penthouse scope</li>
+                        <li>International material sourcing</li>
+                        <li>Architect collaboration</li>
+                        <li>White glove concierge</li>
+                        <li>1-year dedicated support</li>
+                    </ul>
+                    <button class="btn btn-outline">Let's Talk</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PROJECT GALLERY -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Selected Works</h2>
+                <p class="section-subtitle">PORTFOLIO OF EXCELLENCE</p>
+            </div>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="living">Living Rooms</button>
+                <button class="filter-btn" data-filter="kitchen">Kitchens</button>
+                <button class="filter-btn" data-filter="bedroom">Bedrooms</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+            </div>
+
+            <div class="masonry-grid" id="gallery-grid">
+                <!-- Projects generated via JS or statically added here -->
+                <div class="gallery-item" data-category="living">
+                    <div class="image-placeholder placeholder-1"></div>
+                    <div class="overlay">
+                        <h4>The Oberoi Residence</h4>
+                        <p>Mumbai</p>
+                        <span class="category-tag">Living Room</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="kitchen">
+                    <div class="image-placeholder placeholder-2"></div>
+                    <div class="overlay">
+                        <h4>Kapoor Farmhouse</h4>
+                        <p>Delhi</p>
+                        <span class="category-tag">Kitchen</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="bedroom">
+                    <div class="image-placeholder placeholder-3"></div>
+                    <div class="overlay">
+                        <h4>Sky Villa 22</h4>
+                        <p>Bangalore</p>
+                        <span class="category-tag">Bedroom</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="commercial">
+                    <div class="image-placeholder placeholder-4"></div>
+                    <div class="overlay">
+                        <h4>Sharma & Co HQ</h4>
+                        <p>Pune</p>
+                        <span class="category-tag">Commercial</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="living">
+                    <div class="image-placeholder placeholder-5"></div>
+                    <div class="overlay">
+                        <h4>The Coastal Retreat</h4>
+                        <p>Goa</p>
+                        <span class="category-tag">Living Room</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="kitchen">
+                    <div class="image-placeholder placeholder-6"></div>
+                    <div class="overlay">
+                        <h4>Mehta Penthouse</h4>
+                        <p>Mumbai</p>
+                        <span class="category-tag">Kitchen</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="bedroom">
+                    <div class="image-placeholder placeholder-7"></div>
+                    <div class="overlay">
+                        <h4>Arora Heritage Home</h4>
+                        <p>Jaipur</p>
+                        <span class="category-tag">Bedroom</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="commercial">
+                    <div class="image-placeholder placeholder-8"></div>
+                    <div class="overlay">
+                        <h4>TechPark Executive Suite</h4>
+                        <p>Hyderabad</p>
+                        <span class="category-tag">Commercial</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="living">
+                    <div class="image-placeholder placeholder-9"></div>
+                    <div class="overlay">
+                        <h4>Lakeview Bungalow</h4>
+                        <p>Udaipur</p>
+                        <span class="category-tag">Living Room</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="kitchen">
+                    <div class="image-placeholder placeholder-10"></div>
+                    <div class="overlay">
+                        <h4>The Green Villa</h4>
+                        <p>Chennai</p>
+                        <span class="category-tag">Kitchen</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="bedroom">
+                    <div class="image-placeholder placeholder-11"></div>
+                    <div class="overlay">
+                        <h4>Patel Sky Lounge</h4>
+                        <p>Ahmedabad</p>
+                        <span class="category-tag">Bedroom</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="commercial">
+                    <div class="image-placeholder placeholder-12"></div>
+                    <div class="overlay">
+                        <h4>Ritz Boutique Hotel Lobby</h4>
+                        <p>Delhi</p>
+                        <span class="category-tag">Commercial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: HOW IT WORKS (PROCESS) -->
+    <section id="process" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Process</h2>
+                <p class="section-subtitle">A SEAMLESS JOURNEY</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h4>Discovery Call</h4>
+                        <p>We begin with a 45-minute conversation to understand your vision, lifestyle, and budget. No commitment required.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h4>Concept & Design</h4>
+                        <p>Our team creates mood boards, 3D renders and material palettes tailored specifically to your space and personality.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h4>Execution</h4>
+                        <p>From procurement to installation — we manage every vendor, timeline, and detail so you never have to worry.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h4>Your Dream, Delivered</h4>
+                        <p>We hand over a fully finished space, professionally photographed, with a detailed maintenance guide and ongoing support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: TESTIMONIALS -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Client Stories</h2>
+                <p class="section-subtitle">WORDS OF APPRECIATION</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review">"Arjun and the Luxe team transformed our empty flat into something that genuinely takes your breath away. Every corner is intentional. Worth every rupee."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">PK</div>
+                        <div class="client-details">
+                            <h4>Priya Kapoor</h4>
+                            <p>The Kapoor Farmhouse, Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review">"The 3D renders were so accurate we felt like we'd already lived in the space before work even began. Professional, punctual and painfully talented."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">RS</div>
+                        <div class="client-details">
+                            <h4>Rohit Sharma</h4>
+                            <p>Sharma & Co HQ, Pune</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review">"From the first call to the final handover, the experience was flawless. They understood our aesthetic better than we did."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">NM</div>
+                        <div class="client-details">
+                            <h4>Neha & Vivek Mehta</h4>
+                            <p>Mehta Penthouse, Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: CONTACT + BOOKING -->
+    <section id="contact" class="section">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2 class="section-title">Let's Talk</h2>
+                <p class="section-subtitle" style="margin-bottom: 40px;">BEGIN YOUR DESIGN JOURNEY</p>
+                
+                <div class="info-block">
+                    <h4>Studio Address</h4>
+                    <p>14B, Sindhi Colony, C-Scheme<br>Jaipur, Rajasthan 302001</p>
+                </div>
+                <div class="info-block">
+                    <h4>Contact</h4>
+                    <p>Phone: <a href="tel:+919829045671">+91 98290 45671</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/919829045671" target="_blank">+91 98290 45671</a></p>
+                    <p>Email: <a href="mailto:hello@luxeinteriors.in">hello@luxeinteriors.in</a></p>
+                </div>
+                <div class="info-block">
+                    <h4>Hours</h4>
+                    <p>Mon–Sat, 10am – 7pm</p>
+                </div>
+            </div>
+            
+            <div class="booking-form-wrapper">
+                <form id="booking-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="+91 XXXXX XXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="jane@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select id="city" required>
+                            <option value="">Select City</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Project Type</label>
+                        <select id="type" required>
+                            <option value="">Select Type</option>
+                            <option value="New Home">New Home</option>
+                            <option value="Renovation">Renovation</option>
+                            <option value="Commercial">Commercial</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" required>
+                            <option value="">Select Budget</option>
+                            <option value="10L-25L">₹10L–25L</option>
+                            <option value="25L-50L">₹25L–50L</option>
+                            <option value="50L-1Cr">₹50L–1Cr</option>
+                            <option value="1Cr+">1Cr+</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Message / Vision</label>
+                        <textarea id="message" rows="4" placeholder="Tell us about your space..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary btn-full">Book Free Consultation</button>
+                    </div>
+                    <div id="form-success" class="form-success">
+                        Thank you! We'll be in touch within 24 hours.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <h2 class="footer-logo">LUXE INTERIORS</h2>
+                <p class="tagline">"Crafting spaces that tell your story."</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/luxeinteriors.in" target="_blank">Ig</a>
+                    <a href="https://pinterest.com/luxeinteriorsIN" target="_blank">Pi</a>
+                    <a href="https://youtube.com/@luxeinteriors" target="_blank">Yt</a>
+                    <a href="https://linkedin.com/company/luxeinteriors" target="_blank">Li</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>14B, Sindhi Colony, Jaipur</li>
+                    <li>+91 98290 45671</li>
+                    <li>hello@luxeinteriors.in</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Luxe Interiors. All rights reserved. Designed with intention.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
