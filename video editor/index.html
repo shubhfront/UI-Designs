@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Carter - Cinematic Photographer & Developer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-brand">ALEX CARTER</div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero-timeline">Home</a></li>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div id="loading-text">0%</div>
+        <div id="loading-bar-container">
+            <div id="loading-bar"></div>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div id="progress-bar"></div>
+
+    <!-- The 3D Scroll Hero Timeline -->
+    <section id="hero-timeline">
+        <div class="sticky-container">
+            <!-- The Scrubber Canvas -->
+            <canvas id="hero-lightpass"></canvas>
+            
+            <!-- Vignette -->
+            <div class="vignette"></div>
+
+            <!-- Text Stages -->
+            <div id="text-1" class="text-overlay">Capturing the Unseen</div>
+            <div id="text-2" class="text-overlay">Framing the Narrative</div>
+            <div id="text-3" class="text-overlay">Mastering the Light</div>
+            <div id="text-4" class="text-overlay">Cinematic Storytelling</div>
+
+            <!-- About Section (Final Frame of Timeline) -->
+            <div id="about-section">
+                <div class="about-content">
+                    <h1>ALEX CARTER</h1>
+                    <h2>Cinematic Photographer & Video Editor</h2>
+                    <p>Capturing the world through a lens of raw emotion and cinematic precision. With over a decade of experience in visual storytelling, I specialize in high-end commercial photography, narrative-driven editing, and color grading that brings stories to life.</p>
+                    <div class="skills">
+                        <span>Premiere Pro</span>
+                        <span>DaVinci Resolve</span>
+                        <span>Lightroom</span>
+                        <span>After Effects</span>
+                    </div>
+                    <a href="#skills"><button id="about-btn">Explore Portfolio</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Scroll Content Resumes Here -->
+    <main id="main-content">
+        
+        <!-- Skills Section -->
+        <section id="skills" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title">Technical Expertise</h2>
+                <p class="section-subtitle">Bridging the gap between creative storytelling and robust technical architecture.</p>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skill-chips">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript (ES6+)</span>
+                            <span>React.js</span>
+                            <span>Tailwind CSS</span>
+                            <span>GSAP</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend & Tools</h3>
+                        <div class="skill-chips">
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>MongoDB</span>
+                            <span>Git & GitHub</span>
+                            <span>REST APIs</span>
+                            <span>Vercel</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Design & Soft Skills</h3>
+                        <div class="skill-chips">
+                            <span>UI/UX Design</span>
+                            <span>Figma</span>
+                            <span>Problem Solving</span>
+                            <span>Communication</span>
+                            <span>Team Leadership</span>
+                            <span>Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title">Selected Works</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-image placeholder-img"><span>Personal Portfolio</span></div>
+                        <div class="project-info">
+                            <h3>Cinematic Portfolio Website</h3>
+                            <p>A highly interactive portfolio utilizing 3D canvas scrolling, lazy loading, and modern layout techniques.</p>
+                            <div class="project-tech"><span>Vanilla JS</span><span>HTML/CSS</span><span>Canvas API</span></div>
+                            <div class="project-links">
+                                <a href="#" class="btn-primary">Live Demo</a>
+                                <a href="#" class="btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-image placeholder-img"><span>E-Commerce</span></div>
+                        <div class="project-info">
+                            <h3>Aura Luxury E-Commerce</h3>
+                            <p>A full-stack product storefront featuring dynamic cart management and responsive product galleries.</p>
+                            <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+                            <div class="project-links">
+                                <a href="#" class="btn-primary">Live Demo</a>
+                                <a href="#" class="btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-image placeholder-img"><span>Task Manager</span></div>
+                        <div class="project-info">
+                            <h3>TaskFlow Dashboard</h3>
+                            <p>An enterprise-level task management dashboard with real-time updates and drag-and-drop functionality.</p>
+                            <div class="project-tech"><span>React</span><span>Firebase</span><span>Tailwind</span></div>
+                            <div class="project-links">
+                                <a href="#" class="btn-primary">Live Demo</a>
+                                <a href="#" class="btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-image placeholder-img"><span>Weather App</span></div>
+                        <div class="project-info">
+                            <h3>Atmos Weather App</h3>
+                            <p>A beautifully designed weather forecast application integrating third-party APIs and dynamic background themes.</p>
+                            <div class="project-tech"><span>JavaScript</span><span>OpenWeather API</span></div>
+                            <div class="project-links">
+                                <a href="#" class="btn-primary">Live Demo</a>
+                                <a href="#" class="btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title">What I Do</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>Frontend Development</h3>
+                        <p>Building responsive, performant, and interactive user interfaces using modern web technologies.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Crafting intuitive and visually stunning user experiences that prioritize usability and brand aesthetics.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎥</div>
+                        <h3>Cinematic Experiences</h3>
+                        <p>Integrating video, 3D scroll mechanics, and heavy animations into web platforms flawlessly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Split Section -->
+        <section class="content-section reveal split-section">
+            <div class="container split-container">
+                <!-- Experience -->
+                <div class="timeline-wrapper" id="experience">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Freelance Web Developer</h4>
+                                <span class="timeline-date">2024 - Present</span>
+                                <p>Delivered custom portfolio websites and e-commerce solutions for independent creators and small businesses.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Frontend Developer Intern</h4>
+                                <span class="timeline-date">TechNova Solutions (2023 - 2024)</span>
+                                <p>Assisted in migrating legacy codebases to React and improving overall accessibility scores across client sites.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-wrapper" id="education">
+                    <h2 class="section-title">Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>B.S. in Computer Science</h4>
+                                <span class="timeline-date">University of Technology (2020 - 2024)</span>
+                                <p>Graduated with Honors. Coursework focused on Software Engineering, Data Structures, and Human-Computer Interaction.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Advanced Web Design Diploma</h4>
+                                <span class="timeline-date">Creative Arts Institute (2019)</span>
+                                <p>Foundation in typography, color theory, and digital asset creation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Testimonials Section -->
+        <section class="content-section reveal bg-alt">
+            <div class="container">
+                <div id="certifications">
+                    <h2 class="section-title">Certifications</h2>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <h4>Frontend Development Certification</h4>
+                            <span>Meta • 2023</span>
+                        </div>
+                        <div class="cert-card">
+                            <h4>React.js Basics & Advanced</h4>
+                            <span>Coursera • 2023</span>
+                        </div>
+                        <div class="cert-card">
+                            <h4>UI/UX Design Fundamentals</h4>
+                            <span>Google • 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="testimonials" class="mt-large">
+                    <h2 class="section-title">Client Feedback</h2>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <p class="quote">"Alex completely transformed our online presence. The new site is lightning fast and visually breathtaking."</p>
+                            <div class="client-info">
+                                <div class="client-avatar placeholder-avatar"></div>
+                                <div>
+                                    <h5>Sarah Jenkins</h5>
+                                    <span>Creative Director</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="quote">"An absolute professional. Delivered the project ahead of schedule and the scroll animations were exactly what we wanted."</p>
+                            <div class="client-info">
+                                <div class="client-avatar placeholder-avatar"></div>
+                                <div>
+                                    <h5>Michael Thorne</h5>
+                                    <span>Startup Founder</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="quote">"The attention to detail in the UI is unmatched. It’s rare to find a developer with such a strong eye for design."</p>
+                            <div class="client-info">
+                                <div class="client-avatar placeholder-avatar"></div>
+                                <div>
+                                    <h5>Elena Rodriguez</h5>
+                                    <span>Photographer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Interested in working together? Let's build something amazing.</p>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <a href="mailto:hello@alexcarter.com">hello@alexcarter.com</a>
+                        </div>
+                        <div class="info-item">
+                            <h4>Phone</h4>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </div>
+                        <div class="info-item">
+                            <h4>Location</h4>
+                            <p>Mumbai, India</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#">LinkedIn</a>
+                            <a href="#">GitHub</a>
+                            <a href="#">Instagram</a>
+                            <a href="#">X / Twitter</a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn-primary submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>ALEX CARTER</h3>
+                        <p>Cinematic web experiences and digital storytelling.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#about-section">About</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <button class="back-to-top" onclick="window.scrollTo(0,0)">↑ Back to Top</button>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Alex Carter. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+<script src="script.js"></script>
+</body>
+</html>
