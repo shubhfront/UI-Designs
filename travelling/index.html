@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLux Travels | The World Is Waiting For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;600&family=Inter:wght@300;400;500;600&family=Lato:wght@300;400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Page Load Overlay -->
+    <div id="page-overlay">
+        <h1 class="overlay-brand">WANDERLUX</h1>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="wl-navbar">
+        <div class="nav-brand">WANDERLUX</div>
+        <div class="nav-links">
+            <a href="#destinations">Destinations</a>
+            <a href="#pricing">Packages</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#blog">Blog</a>
+        </div>
+        <div class="nav-actions">
+            <button id="darkModeToggle" class="btn-dark-mode" aria-label="Toggle Dark Mode">🌙</button>
+            <button class="btn-login">Login</button>
+            <button class="btn-signup">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Custom Airplane Cursor -->
+    <div id="custom-cursor">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M22,16v-2l-8.5-5V3.5C13.5,2.67,12.83,2,12,2s-1.5,0.67-1.5,1.5V9L2,14v2l8.5-2.5V19L8,20.5V22l4-1l4,1v-1.5L13.5,19v-5.5L22,16z" />
+        </svg>
+    </div>
+
+    <!-- Original Loading Screen (for Canvas) -->
+    <div id="loader">
+        <div class="loader-content">
+            <h2>LOADING EXPERIENCE</h2>
+            <div class="progress-bar-container">
+                <div id="loader-progress"></div>
+            </div>
+            <p id="loader-text">0%</p>
+        </div>
+    </div>
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Main Canvas -->
+    <canvas id="scroll-canvas"></canvas>
+
+    <!-- Optional Grain Overlay for Cinematic Film Effect -->
+    <div class="grain-overlay"></div>
+
+    <!-- Static Hero Title Overlay -->
+    <div class="hero-title-overlay" id="hero-title">
+        <h1>WANDERLUX</h1>
+        <p>Journey Beyond the Ordinary</p>
+    </div>
+
+    <!-- Scroll Container (forces the page height for animation) -->
+    <div class="scroll-container">
+        <!-- Text Sections -->
+        <section class="text-section" id="section-1" data-start="0.05" data-end="0.20">
+            <h1>WANDERLUX TRAVELS</h1>
+            <p>Your journey beyond the ordinary starts here.</p>
+        </section>
+
+        <section class="text-section" id="section-2" data-start="0.25" data-end="0.40">
+            <h1>BEYOND BOUNDARIES</h1>
+            <p>Explore the world's most hidden gems.</p>
+        </section>
+
+        <section class="text-section" id="section-3" data-start="0.45" data-end="0.60">
+            <h1>CURATED EXPERIENCES</h1>
+            <p>Every detail, flawlessly designed for you.</p>
+        </section>
+
+        <section class="text-section" id="section-4" data-start="0.65" data-end="0.80">
+            <h1>UNFORGETTABLE MOMENTS</h1>
+            <p>Turn your dreams into timeless stories.</p>
+        </section>
+
+        <section class="text-section" id="section-5" data-start="0.85" data-end="1.0">
+            <h1>YOUR ADVENTURE AWAITS</h1>
+            <p style="margin-top: 10px;">Scroll down to begin exploring</p>
+        </section>
+    </div>
+
+    <!-- WANDERLUX MAIN CONTENT -->
+    <main id="wanderlux-content">
+
+        <!-- SECTION 1 — DESTINATIONS EDITORIAL SPREAD -->
+        <section class="wl-editorial" id="destinations">
+            <div class="bg-watermark">EXPLORE</div>
+
+            <div class="ed-container">
+                <div class="ed-header">
+                    <span class="ed-subtitle">WHERE WILL YOU GO NEXT</span>
+                    <h2 class="ed-title word-reveal-target">The World Is<br>Waiting For You</h2>
+                </div>
+
+                <div class="ed-mosaic">
+                    <!-- Huge landscape left -->
+                    <div class="ed-card ed-large hover-underline">
+                        <div class="ed-img-wrap desaturate"><img src="https://picsum.photos/seed/santorini/1200/900"
+                                alt="Santorini"></div>
+                        <div class="ed-card-content">
+                            <span class="ed-huge-num">01</span>
+                            <div class="ed-info">
+                                <h3 class="ed-name">Santorini, Greece</h3>
+                                <p class="ed-desc">"Where blue domes meet the infinite Aegean"</p>
+                                <div class="ed-meta"><span>7N/8D</span> <span class="ed-price">From ₹2,40,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stacked right -->
+                    <div class="ed-right-stack">
+                        <div class="ed-card ed-small hover-underline">
+                            <div class="ed-img-wrap desaturate"><img src="https://picsum.photos/seed/kyoto/800/800"
+                                    alt="Kyoto"></div>
+                            <div class="ed-card-content">
+                                <span class="ed-huge-num">02</span>
+                                <div class="ed-info">
+                                    <h3 class="ed-name">Kyoto, Japan</h3>
+                                    <p class="ed-desc">"Ancient temples, silent bamboo, endless wonder"</p>
+                                    <div class="ed-meta"><span>10N/11D</span> <span class="ed-price">From
+                                            ₹3,10,000</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ed-card ed-small hover-underline">
+                            <div class="ed-img-wrap desaturate"><img src="https://picsum.photos/seed/serengeti/800/800"
+                                    alt="Serengeti"></div>
+                            <div class="ed-card-content">
+                                <span class="ed-huge-num">03</span>
+                                <div class="ed-info">
+                                    <h3 class="ed-name">Serengeti, Tanzania</h3>
+                                    <p class="ed-desc">"The great migration. Witnessed. Never forgotten."</p>
+                                    <div class="ed-meta"><span>8N/9D</span> <span class="ed-price">From ₹4,50,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full width bottom -->
+                    <div class="ed-card ed-wide hover-underline">
+                        <div class="ed-img-wrap desaturate"><img src="https://picsum.photos/seed/patagonia/1600/600"
+                                alt="Patagonia"></div>
+                        <div class="ed-card-content">
+                            <span class="ed-huge-num">04</span>
+                            <div class="ed-info">
+                                <h3 class="ed-name">Patagonia, Argentina</h3>
+                                <p class="ed-desc">"At the edge of the world, find yourself"</p>
+                                <div class="ed-meta"><span>12N/13D</span> <span class="ed-price">From ₹5,20,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 — BRAND STATEMENT -->
+        <section class="wl-brand" id="brand">
+            <h2 class="brand-title word-reveal-target">We Don't Book Trips.<br>We Write Stories.</h2>
+            <p class="brand-promise">28,000 travellers. 95 countries. One promise — extraordinary.</p>
+
+            <div class="brand-stats">
+                <div class="b-stat"><span class="b-num counter" data-target="15">0</span><span
+                        class="b-label">Years</span></div>
+                <div class="b-divider"></div>
+                <div class="b-stat"><span class="b-num counter" data-target="28000">0</span><span
+                        class="b-plus">K+</span><span class="b-label">Travellers</span></div>
+                <div class="b-divider"></div>
+                <div class="b-stat"><span class="b-num counter" data-target="95">0</span><span
+                        class="b-label">Countries</span></div>
+                <div class="b-divider"></div>
+                <div class="b-stat"><span class="b-num counter" data-target="4.9" data-decimal="true">0</span><span
+                        class="b-plus">★</span><span class="b-label">Rated</span></div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 — TRIP CATEGORIES (Horizontal Strip) -->
+        <section class="wl-categories" id="categories">
+            <div class="cat-header container">
+                <span class="cat-subtitle">TRAVEL BY MOOD</span>
+                <h2 class="cat-title word-reveal-target">How Are You<br>Feeling Today?</h2>
+            </div>
+
+            <div class="cat-strip-wrapper">
+                <div class="cat-strip">
+                    <button class="cat-pill active">🏔 Adventure & Trekking</button>
+                    <button class="cat-pill">💍 Honeymoon</button>
+                    <button class="cat-pill">👨‍👩‍👧 Family Fun</button>
+                    <button class="cat-pill">🧘 Wellness & Retreat</button>
+                    <button class="cat-pill">🍷 Food & Wine</button>
+                    <button class="cat-pill">🛥 Luxury Cruise</button>
+                    <button class="cat-pill">🌿 Eco Travel</button>
+                    <button class="cat-pill">🎭 Culture & Heritage</button>
+                    <button class="cat-pill">🏖 Beach & Island</button>
+                    <button class="cat-pill">❄️ Snow & Ski</button>
+                </div>
+            </div>
+
+            <div class="cat-accordion container">
+                <div class="cat-panel active">
+                    <div class="panel-grid">
+                        <div class="panel-card">
+                            <div class="panel-img desaturate"><img src="https://picsum.photos/seed/adv1/600/400"
+                                    alt="Himalayas"></div>
+                            <h4>Himalayan Summit</h4>
+                            <p>From ₹1,20,000</p>
+                        </div>
+                        <div class="panel-card">
+                            <div class="panel-img desaturate"><img src="https://picsum.photos/seed/adv2/600/400"
+                                    alt="Patagonia"></div>
+                            <h4>Patagonia Trails</h4>
+                            <p>From ₹4,50,000</p>
+                        </div>
+                        <div class="panel-card">
+                            <div class="panel-img desaturate"><img src="https://picsum.photos/seed/adv3/600/400"
+                                    alt="NZ"></div>
+                            <h4>New Zealand Wilds</h4>
+                            <p>From ₹3,80,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 — PROCESS (Diagonal Split) -->
+        <section class="wl-process" id="process">
+            <div class="process-cut"></div>
+            <div class="process-content container">
+                <div class="process-left">
+                    <h2 class="process-title word-reveal-target">Six Steps<br>To Somewhere<br>Incredible</h2>
+                    <svg class="compass-svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="50" cy="50" r="45" opacity="0.3" />
+                        <path class="compass-path" d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z" />
+                        <circle cx="50" cy="50" r="5" fill="currentColor" />
+                    </svg>
+                </div>
+
+                <div class="process-right">
+                    <div class="p-step">
+                        <div class="p-huge">01</div>
+                        <div class="p-info">
+                            <h3>Dream It</h3>
+                            <p>Tell us where curiosity pulls you</p>
+                        </div>
+                    </div>
+                    <div class="p-step">
+                        <div class="p-huge">02</div>
+                        <div class="p-info">
+                            <h3>We Design It</h3>
+                            <p>A bespoke itinerary built around you</p>
+                        </div>
+                    </div>
+                    <div class="p-step">
+                        <div class="p-huge">03</div>
+                        <div class="p-info">
+                            <h3>You Refine It</h3>
+                            <p>Tweak till it feels exactly right</p>
+                        </div>
+                    </div>
+                    <div class="p-step">
+                        <div class="p-huge">04</div>
+                        <div class="p-info">
+                            <h3>We Book It All</h3>
+                            <p>Flights hotels transfers experiences</p>
+                        </div>
+                    </div>
+                    <div class="p-step">
+                        <div class="p-huge">05</div>
+                        <div class="p-info">
+                            <h3>We Brief You</h3>
+                            <p>Visa packing guides local intel</p>
+                        </div>
+                    </div>
+                    <div class="p-step">
+                        <div class="p-huge">06</div>
+                        <div class="p-info">
+                            <h3>You Live It</h3>
+                            <p>We stay on call. You stay present.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 — PRICING (Horizontal Strips) -->
+        <section class="wl-pricing" id="pricing">
+            <div class="container text-center">
+                <h2 class="pricing-title word-reveal-target">Pick Your<br>Perfect Journey</h2>
+                <svg class="pricing-underline" viewBox="0 0 300 20" preserveAspectRatio="none">
+                    <path d="M5 15 Q 150 0 295 15" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <div class="pricing-wrapper">
+                <!-- Package 1 -->
+                <div class="pkg-strip">
+                    <div class="container pkg-inner">
+                        <div class="pkg-left">
+                            <span class="pkg-num">1</span>
+                            <div class="pkg-name-wrap">
+                                <h3>Explorer</h3>
+                                <span class="pkg-tag">"For the curious first-timer"</span>
+                            </div>
+                        </div>
+                        <div class="pkg-mid">
+                            Return flights · 3★ Hotels · Group Tours · Basic Insurance
+                        </div>
+                        <div class="pkg-right">
+                            <div class="pkg-price">₹85,000<span class="pkg-pp">/person</span></div>
+                            <a href="#contact" class="btn-orange">Get Quote <span class="fly-icon">✈</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 (Highlighted) -->
+                <div class="pkg-strip highlighted">
+                    <div class="container pkg-inner">
+                        <div class="pkg-left">
+                            <span class="pkg-num">2</span>
+                            <div class="pkg-name-wrap">
+                                <h3>Signature</h3>
+                                <span class="pkg-tag">"For those who travel with taste"</span>
+                            </div>
+                        </div>
+                        <div class="pkg-mid">
+                            4–5★ Hotels · Private Transfers · Curated Dining · Dedicated Manager · Visa Help
+                        </div>
+                        <div class="pkg-right">
+                            <div class="pkg-price">₹1,65,000<span class="pkg-pp">/person</span></div>
+                            <a href="#contact" class="btn-dark">Get Quote <span class="fly-icon">✈</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="pkg-strip">
+                    <div class="container pkg-inner">
+                        <div class="pkg-left">
+                            <span class="pkg-num">3</span>
+                            <div class="pkg-name-wrap">
+                                <h3>Ultra Luxe</h3>
+                                <span class="pkg-tag">"For the extraordinary traveller"</span>
+                            </div>
+                        </div>
+                        <div class="pkg-mid">
+                            Private Jets · Butler Service · Exclusive Access · Villas · Fully Bespoke
+                        </div>
+                        <div class="pkg-right">
+                            <div class="pkg-price">₹3,20,000<span class="pkg-pp">/person</span></div>
+                            <a href="#contact" class="btn-orange">Get Quote <span class="fly-icon">✈</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 — GALLERY (Scrapbook Collage) -->
+        <section class="wl-gallery" id="gallery">
+            <div class="container">
+                <h2 class="gallery-title word-reveal-target"><span class="outline-text">Postcards</span><br>From The
+                    Road</h2>
+            </div>
+
+            <div class="scrapbook-container">
+                <div class="scrap-item rot-n3 pos-1">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p1/400/500" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Sunrise over Santorini 🌅</div>
+                </div>
+                <div class="scrap-item rot-4 pos-2">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p2/500/400" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Lost in Kyoto 🏯</div>
+                </div>
+                <div class="scrap-item rot-n2 pos-3">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p3/400/400" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Safari morning ☕</div>
+                </div>
+                <div class="scrap-item rot-2 pos-4">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p4/500/600" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Swiss peaks 🏔</div>
+                </div>
+                <div class="scrap-item rot-n4 pos-5">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p5/600/400" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Maldives blue 🐠</div>
+                </div>
+                <div class="scrap-item rot-3 pos-6">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p6/400/500" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Amalfi roads 🛵</div>
+                </div>
+                <div class="scrap-item rot-n2 pos-7">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p7/400/300" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Bali rice fields 🌿</div>
+                </div>
+                <div class="scrap-item rot-3 pos-8">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p8/500/400" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Tokyo nights 🏮</div>
+                </div>
+                <div class="scrap-item rot-n3 pos-9">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p9/400/500" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Paris always ✨</div>
+                </div>
+                <div class="scrap-item rot-2 pos-10">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p10/400/300" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">New York hustle 🗽</div>
+                </div>
+                <div class="scrap-item rot-n1 pos-11">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p11/500/400" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Sahara dunes 🐪</div>
+                </div>
+                <div class="scrap-item rot-3 pos-12">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p12/400/500" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Aurora borealis 🌌</div>
+                </div>
+                <div class="scrap-item rot-n4 pos-13">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p13/600/400" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Sydney harbor ⛵</div>
+                </div>
+                <div class="scrap-item rot-1 pos-14">
+                    <div class="polaroid-frame desaturate">
+                        <img src="https://picsum.photos/seed/p14/400/400" alt="Gallery">
+                    </div>
+                    <svg class="scrap-pin" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm2,14H10V10H8L12,6l4,4H14Z" fill="#1A1208" />
+                    </svg>
+                    <div class="scrap-cap">Machu Picchu 🦙</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 — TESTIMONIALS (Magazine Pull Quote) -->
+        <section class="wl-testimonials" id="testimonials">
+            <div class="container">
+                <div class="pull-quote-wrapper">
+                    <span class="q-mark left">"</span>
+                    <h2 class="pull-quote word-reveal-target">It wasn't a holiday.<br>It was a transformation.</h2>
+                    <span class="q-mark right">"</span>
+                    <p class="quote-author">— Aryan & Kavya Mehta, Tuscany Honeymoon</p>
+                </div>
+
+                <div class="test-grid">
+                    <div class="t-card">
+                        <div class="t-head">
+                            <div class="t-circle c-orange">R</div>
+                            <div class="t-meta">
+                                <h4>Ritu S.</h4>
+                                <span>TOKYO & KYOTO</span>
+                            </div>
+                        </div>
+                        <p class="t-text">"The Japan itinerary had things I'd never have found in any guidebook. Pure
+                            magic."</p>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-head">
+                            <div class="t-circle c-green">D</div>
+                            <div class="t-meta">
+                                <h4>Deepak V.</h4>
+                                <span>SWISS ALPS</span>
+                            </div>
+                        </div>
+                        <p class="t-text">"Flight delayed at midnight in Zurich. Someone picked up in one ring. Rebooked
+                            us instantly."</p>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-head">
+                            <div class="t-circle c-yellow">P</div>
+                            <div class="t-meta">
+                                <h4>Pooja & Nikhil A.</h4>
+                                <span>MALDIVES</span>
+                            </div>
+                        </div>
+                        <p class="t-text">"Private dinner on a sandbank under the stars. I still can't believe that was
+                            real."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8 — BLOG (Newspaper) -->
+        <section class="wl-blog" id="blog">
+            <div class="container">
+                <div class="blog-header">
+                    <div class="b-accent-rect"></div>
+                    <div>
+                        <h2 class="blog-title word-reveal-target">The WanderLux<br>Dispatch</h2>
+                        <p class="blog-subtitle">Stories, guides, and obsessions from the road.</p>
+                    </div>
+                </div>
+
+                <div class="news-layout">
+                    <!-- Hero Article -->
+                    <div class="n-hero hover-underline">
+                        <div class="n-img-wrap desaturate"><img src="https://picsum.photos/seed/patblog2/1000/700"
+                                alt="Patagonia"></div>
+                        <div class="n-content">
+                            <span class="n-tag">Adventure</span>
+                            <h3 class="n-title">Why Patagonia Will Ruin Every Other Destination For You</h3>
+                            <p class="n-meta">By Rohan Desai · April 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Side Articles -->
+                    <div class="n-side">
+                        <div class="n-small hover-underline">
+                            <div class="n-img-wrap desaturate"><img src="https://picsum.photos/seed/tokyoblog2/600/400"
+                                    alt="Tokyo"></div>
+                            <div class="n-content">
+                                <span class="n-tag">Tips</span>
+                                <h3 class="n-title">The 48-Hour Tokyo Guide That Actually Works</h3>
+                                <p class="n-meta">By Aisha Nair · March 2025</p>
+                            </div>
+                        </div>
+                        <div class="n-small hover-underline">
+                            <div class="n-img-wrap desaturate"><img
+                                    src="https://picsum.photos/seed/maldivesblog2/600/400" alt="Maldives"></div>
+                            <div class="n-content">
+                                <span class="n-tag">Debate</span>
+                                <h3 class="n-title">Maldives: Overrated or Underexplored?</h3>
+                                <p class="n-meta">By Priya Sen · February 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="news-divider">
+
+                <!-- Bottom Strip Article -->
+                <div class="n-strip hover-underline">
+                    <div class="n-strip-img desaturate"><img src="https://picsum.photos/seed/seasia2/400/300"
+                            alt="Asia"></div>
+                    <div class="n-strip-content">
+                        <span class="n-tag">Solo Travel</span>
+                        <h3 class="n-title">A First-Timer's Honest Guide to Solo Travel in Southeast Asia</h3>
+                        <p class="n-meta">By Kabir Mehta · January 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9 — CONTACT & BOOKING -->
+        <section class="wl-contact" id="contact">
+            <div class="container c-grid">
+                <div class="c-left">
+                    <h2 class="c-title word-reveal-target">Let's Plan<br>Something<br>Unforgettable</h2>
+
+                    <div class="c-info-list">
+                        <div class="c-item">
+                            <span class="c-icon">📍</span>
+                            <div>801, Worldmark Aerocity, New Delhi 110037</div>
+                        </div>
+                        <div class="c-item">
+                            <span class="c-icon">📞</span>
+                            <div>+91 98112 67890</div>
+                        </div>
+                        <div class="c-item">
+                            <span class="c-icon">📧</span>
+                            <div>hello@wanderlux.in</div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn-outline-white">💬 WhatsApp Us <span class="fly-icon">✈</span></a>
+                </div>
+
+                <div class="c-right">
+                    <form class="glass-form" id="bookingForm">
+                        <div class="form-row">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <input type="email" placeholder="Email Address" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="Destination in Mind">
+                            <input type="number" placeholder="Travellers">
+                        </div>
+                        <div class="form-row">
+                            <select>
+                                <option value="" disabled selected>Travel Type</option>
+                                <option>Honeymoon</option>
+                                <option>Family</option>
+                                <option>Solo</option>
+                                <option>Group</option>
+                            </select>
+                            <select>
+                                <option value="" disabled selected>Preferred Package</option>
+                                <option>Explorer</option>
+                                <option>Signature</option>
+                                <option>Ultra Luxe</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <input type="date" placeholder="From">
+                            <input type="date" placeholder="To">
+                        </div>
+                        <textarea rows="4" placeholder="Special Requests or Notes"></textarea>
+                        <button type="submit" class="btn-yellow">Request My Itinerary <span
+                                class="fly-icon">✈</span></button>
+
+                        <div id="formSuccess" class="c-success">
+                            <svg class="flight-svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M22,16v-2l-8.5-5V3.5C13.5,2.67,12.83,2,12,2s-1.5,0.67-1.5,1.5V9L2,14v2l8.5-2.5V19L8,20.5V22l4-1l4,1v-1.5L13.5,19v-5.5L22,16z" />
+                            </svg>
+                            Your adventure is loading... We'll call within 24 hours!
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10 — FOOTER -->
+        <footer class="wl-footer">
+            <div class="footer-marquee">
+                <div class="fm-track">
+                    <span>✈ SANTORINI</span><span>🏔 PATAGONIA</span><span>🌊 MALDIVES</span>
+                    <span>🏯 KYOTO</span><span>🦁 SERENGETI</span><span>🍷 TUSCANY</span><span>❄️ ICELAND</span>
+                    <!-- Duplicate -->
+                    <span>✈ SANTORINI</span><span>🏔 PATAGONIA</span><span>🌊 MALDIVES</span>
+                    <span>🏯 KYOTO</span><span>🦁 SERENGETI</span><span>🍷 TUSCANY</span><span>❄️ ICELAND</span>
+                </div>
+            </div>
+
+            <div class="container f-grid">
+                <div class="f-brand">
+                    <h2>WANDERLUX</h2>
+                    <span class="f-est">TRAVELS EST. 2009</span>
+                    <p>Journey Beyond the Ordinary.</p>
+                </div>
+                <div class="f-links">
+                    <div class="f-col">
+                        <h4>Explore</h4>
+                        <a href="#">Destinations</a><a href="#">Packages</a><a href="#">Experiences</a><a
+                            href="#">Blog</a>
+                    </div>
+                    <div class="f-col">
+                        <h4>Company</h4>
+                        <a href="#">About</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Partners</a>
+                    </div>
+                    <div class="f-col">
+                        <h4>Support</h4>
+                        <a href="#">Contact</a><a href="#">FAQ</a><a href="#">Visa Help</a><a href="#">Insurance</a>
+                    </div>
+                    <div class="f-col">
+                        <h4>Connect</h4>
+                        <a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Pinterest</a><a
+                            href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="f-bottom">
+                <div class="f-b-left">© 2025 WanderLux Travels</div>
+                <div class="f-b-right"><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Refund Policy</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Floating Scroll Button -->
+    <a href="#contact" class="floating-scroll-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M22,16v-2l-8.5-5V3.5C13.5,2.67,12.83,2,12,2s-1.5,0.67-1.5,1.5V9L2,14v2l8.5-2.5V19L8,20.5V22l4-1l4,1v-1.5L13.5,19v-5.5L22,16z" />
+        </svg>
+    </a>
+
+    <!-- Mobile Sticky Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="#contact" class="btn-plan-mobile">✈ Plan My Trip</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
