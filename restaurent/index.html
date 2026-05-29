@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saffron & Smoke | Modern Indian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- SVG Definitions for Clip Paths -->
+    <svg style="display:none;">
+        <defs>
+            <clipPath id="torn-edge-clip" clipPathUnits="objectBoundingBox">
+                <polygon points="0,0 1,0 1,1 0.98,0.96 0.95,0.99 0.92,0.96 0.88,1 0.85,0.97 0.82,1 0.78,0.95 0.75,0.99 0.72,0.96 0.68,1 0.65,0.97 0.62,1 0.58,0.95 0.55,0.99 0.52,0.96 0.48,1 0.45,0.97 0.42,1 0.38,0.95 0.35,0.99 0.32,0.96 0.28,1 0.25,0.97 0.22,1 0.18,0.95 0.15,0.99 0.12,0.96 0.08,1 0.05,0.97 0.02,1 0,0.95" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fork-icon"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+    </div>
+
+    <!-- Page Load Animation Overlay -->
+    <div id="liquid-loader"></div>
+
+    <!-- Preloader (from previous setup, adapted slightly) -->
+    <div id="loader">
+        <div class="loader-content">
+            <h1 class="loader-title">PREPARING YOUR DISH</h1>
+            <div class="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <p id="progress-text">0%</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-logo">S&S</div>
+        <div class="nav-links">
+            <a href="#menu">Menu</a>
+            <a href="#chef">Chef</a>
+            <a href="#reserve">Reserve</a>
+            <a href="#contact">Contact</a>
+            <a href="#reserve" class="nav-cta">Book a Table</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container for 3D Scroll -->
+    <div class="scroll-container">
+        <!-- Frame Animation Canvas -->
+        <canvas id="hero-canvas"></canvas>
+        
+        <!-- Text Sections -->
+        <div class="text-overlay" data-start="0.05" data-end="0.25">
+            <h1 class="headline">A CULINARY JOURNEY</h1>
+            <p class="body-text">Experience flavors that transport you to another world.</p>
+        </div>
+        
+        <div class="text-overlay" data-start="0.35" data-end="0.55">
+            <h2 class="subheadline">EXCEPTIONAL INGREDIENTS</h2>
+            <p class="body-text">Every dish meticulously crafted with the freshest produce.</p>
+        </div>
+        
+        <div class="text-overlay" data-start="0.75" data-end="0.95">
+            <h2 class="headline">TASTE THE MAGIC</h2>
+            <a href="#signatures" class="cta-button">EXPLORE MORE</a>
+        </div>
+    </div>
+
+    <!-- Torn Edge Divider Top -->
+    <div class="torn-divider" style="background-color: #050505;">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none">
+            <path d="M0,0 L1200,0 L1200,20 Q1180,30 1150,15 T1100,25 T1050,10 T1000,30 T950,15 T900,25 T850,5 T800,20 T750,10 T700,25 T650,5 T600,20 T550,10 T500,25 T450,15 T400,25 T350,10 T300,20 T250,5 T200,25 T150,15 T100,30 T50,10 Q20,20 0,10 Z" fill="#F9F4EE"></path>
+        </svg>
+    </div>
+
+    <!-- SECTION 1: SIGNATURE DISHES -->
+    <section id="signatures" class="section-signatures">
+        <div class="watermark-text">SAFFRON & SMOKE</div>
+        <div class="signatures-layout">
+            <div class="signatures-content">
+                <p class="section-tagline">OUR SIGNATURES</p>
+                <h2 class="section-heading ink-reveal">Dishes That<br>Demand Return Visits</h2>
+                <div class="dish-list">
+                    <div class="dish-entry hover-trigger">
+                        <span class="dish-number">01</span>
+                        <div class="dish-info">
+                            <h3 class="dish-name">Dal Makhani Noir <svg class="spice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="3"/></svg></h3>
+                            <p class="dish-desc"><i>Black lentils slow-cooked 18 hours in a clay pot over coal</i></p>
+                        </div>
+                        <span class="dish-price">₹520</span>
+                    </div>
+                    <div class="dish-entry hover-trigger">
+                        <span class="dish-number">02</span>
+                        <div class="dish-info">
+                            <h3 class="dish-name">Smoked Lamb Raan <svg class="spice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="3"/></svg></h3>
+                            <p class="dish-desc"><i>Whole leg marinated 24 hours, smoked over saffron wood chips</i></p>
+                        </div>
+                        <span class="dish-price">₹1,850</span>
+                    </div>
+                    <div class="dish-entry hover-trigger">
+                        <span class="dish-number">03</span>
+                        <div class="dish-info">
+                            <h3 class="dish-name">Butter Chicken Reinvented <svg class="spice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="3"/></svg></h3>
+                            <p class="dish-desc"><i>Our chef's 2019 award-winning deconstructed classic</i></p>
+                        </div>
+                        <span class="dish-price">₹780</span>
+                    </div>
+                    <div class="dish-entry hover-trigger">
+                        <span class="dish-number">04</span>
+                        <div class="dish-info">
+                            <h3 class="dish-name">Charcoal Naan Triptych <svg class="spice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="3"/></svg></h3>
+                            <p class="dish-desc"><i>Three miniature naans — truffle, saffron, and smoked garlic</i></p>
+                        </div>
+                        <span class="dish-price">₹320</span>
+                    </div>
+                    <div class="dish-entry hover-trigger">
+                        <span class="dish-number">05</span>
+                        <div class="dish-info">
+                            <h3 class="dish-name">Rasmalai Brûlée <svg class="spice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="3"/></svg></h3>
+                            <p class="dish-desc"><i>Bengal meets Paris — rasmalai custard with a caramelized crust</i></p>
+                        </div>
+                        <span class="dish-price">₹420</span>
+                    </div>
+                </div>
+            </div>
+            <div class="signatures-image-wrapper">
+                <img src="https://picsum.photos/seed/indianfood1/800/1200" alt="Signature Dish" class="editorial-image rotate-img hover-trigger">
+            </div>
+        </div>
+    </section>
+
+    <!-- Torn Edge Divider Amber -->
+    <div class="torn-divider" style="background-color: #F9F4EE;">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none">
+            <path d="M0,0 L1200,0 L1200,20 Q1180,30 1150,15 T1100,25 T1050,10 T1000,30 T950,15 T900,25 T850,5 T800,20 T750,10 T700,25 T650,5 T600,20 T550,10 T500,25 T450,15 T400,25 T350,10 T300,20 T250,5 T200,25 T150,15 T100,30 T50,10 Q20,20 0,10 Z" fill="#D4380D"></path>
+        </svg>
+    </div>
+
+    <!-- SECTION 2: BRAND STATEMENT -->
+    <section class="section-statement">
+        <div class="statement-texture"></div>
+        <div class="statement-content ink-reveal">
+            <h2 class="statement-text">BORN IN FIRE.<br>SEASONED IN TRADITION.<br>SERVED WITH AUDACITY.</h2>
+            <p class="statement-subtext"><i>"Modern Indian cuisine for those who believe food should tell a story."</i></p>
+        </div>
+        <svg class="flame-icon" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="1.5">
+            <path d="M12 2c0 0-4 4-4 9a4 4 0 0 0 8 0c0-5-4-9-4-9z"/>
+            <path d="M12 2v9"/>
+        </svg>
+        <span class="est-text">Est. 2017 · New Delhi</span>
+    </section>
+
+    <!-- SECTION 3: THE MENU (BROADSHEET) -->
+    <section id="menu" class="section-menu">
+        <div class="menu-masthead ink-reveal">
+            <div class="masthead-the">THE</div>
+            <div class="masthead-menu">Menu</div>
+        </div>
+        <div class="newspaper-grid">
+            <!-- Column 1 -->
+            <div class="newspaper-col">
+                <h3 class="col-heading">Small Plates & Starters</h3>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Seekh Kebab Coal Smoked</span>
+                        <span class="item-price">₹680</span>
+                    </div>
+                    <div class="item-desc"><i>Hand-pounded lamb on iron skewers over live coal</i></div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Amritsari Fish Tikka</span>
+                        <span class="item-price">₹720</span>
+                    </div>
+                    <div class="item-desc"><i>River sole in carom seed batter, mustard aioli</i></div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Bhel Puri Moderne</span>
+                        <span class="item-price">₹380</span>
+                    </div>
+                    <div class="item-desc"><i>Deconstructed street bhel with tamarind foam</i></div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Heirloom Tomato Chaat</span>
+                        <span class="item-price">₹420</span>
+                    </div>
+                    <div class="item-desc"><i>Five varieties, date reduction, pomegranate snow</i></div>
+                </div>
+            </div>
+            
+            <!-- Column 2 (Center) -->
+            <div class="newspaper-col center-col">
+                <h3 class="col-heading">Mains</h3>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Dal Makhani Noir</span>
+                        <span class="item-price">₹520</span>
+                    </div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Butter Chicken Reinvented</span>
+                        <span class="item-price">₹780</span>
+                    </div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Rogan Josh à la Minute</span>
+                        <span class="item-price">₹920</span>
+                    </div>
+                    <div class="item-desc"><i>Kashmiri lamb, whole spices, saffron</i></div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Smoked Paneer Shahi</span>
+                        <span class="item-price">₹640</span>
+                    </div>
+                    <div class="item-desc"><i>72-hour marinated cottage cheese, black cardamom</i></div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Prawn Moilee</span>
+                        <span class="item-price">₹1,100</span>
+                    </div>
+                    <div class="item-desc"><i>Coconut milk, green chili, curry leaf oil</i></div>
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="newspaper-col">
+                <h3 class="col-heading">Breads, Sides & Desserts</h3>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Charcoal Naan Triptych</span>
+                        <span class="item-price">₹320</span>
+                    </div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Laccha Paratha</span>
+                        <span class="item-price">₹180</span>
+                    </div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Saffron Pulao</span>
+                        <span class="item-price">₹280</span>
+                    </div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Rasmalai Brûlée</span>
+                        <span class="item-price">₹420</span>
+                    </div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Gulab Jamun Old Fashioned</span>
+                        <span class="item-price">₹380</span>
+                    </div>
+                    <div class="item-desc"><i>Served with bourbon caramel</i></div>
+                </div>
+                <div class="menu-item hover-trigger">
+                    <div class="item-header">
+                        <span class="item-name">Kulfi Trilogy</span>
+                        <span class="item-price">₹360</span>
+                    </div>
+                    <div class="item-desc"><i>Mango, pistachio, rose</i></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tasting-menu-strip">
+            Ask your server about today's Chef's Tasting Menu · ₹3,200 per person · Paired wines available
+        </div>
+        
+        <button class="menu-download-btn">DOWNLOAD FULL MENU</button>
+    </section>
+
+    <!-- SECTION 4: THE CHEF -->
+    <section id="chef" class="section-chef">
+        <div class="chef-layout">
+            <div class="chef-image-side">
+                <div class="chef-image-mask">
+                    <img src="https://picsum.photos/seed/chef/800/1000" alt="Chef Arjun Singh Rawat">
+                </div>
+                <div class="chef-quote">
+                    <p>"I cook with fire because I want you to feel it."</p>
+                    <svg viewBox="0 0 200 20" class="quote-underline"><path d="M5,15 Q30,5 60,15 T120,10 T180,18" fill="none" stroke="#F0A500" stroke-width="2"/></svg>
+                </div>
+            </div>
+            <div class="chef-text-side ink-reveal">
+                <span class="chef-preheading">MEET THE MIND BEHIND THE MENU</span>
+                <h2 class="chef-heading">Chef Arjun<br>Singh Rawat</h2>
+                <p class="chef-title"><i>Executive Chef & Co-Founder</i></p>
+                <p class="chef-bio">
+                    Trained at the Culinary Institute of America and with stints at Noma Copenhagen and The Bombay Canteen, Chef Arjun returned to Delhi with one obsession — to cook Indian food that feels both ancestral and alive. Every dish on our menu carries a memory, a technique, and a small act of rebellion.
+                </p>
+                <div class="achievement-pills">
+                    <span class="pill">🏆 Times Food Award 2022</span>
+                    <span class="pill">⭐ Condé Nast Traveller Top 50</span>
+                    <span class="pill">🔪 Forbes 30 Under 30</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: EXPERIENCE & PRICING -->
+    <section class="section-experience">
+        <div class="exp-heading-wrapper ink-reveal">
+            <h2 class="exp-heading">How Would You<br>Like To Dine?</h2>
+            <svg class="hand-arrow" viewBox="0 0 100 50" fill="none" stroke="#D4380D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10,25 Q50,5 90,25 M70,10 L90,25 L70,40" />
+            </svg>
+        </div>
+        <div class="exp-strips">
+            <!-- Strip 1 -->
+            <div class="exp-strip">
+                <div class="strip-bg-num">01</div>
+                <div class="strip-content">
+                    <div class="strip-header">
+                        <svg class="strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                        <h3>À La Carte</h3>
+                    </div>
+                    <p class="strip-desc">Order freely from our full menu. Perfect for explorers.</p>
+                    <p class="strip-details">Avg spend ₹1,200–₹2,000 per person · Lunch & Dinner · Walk-ins welcome</p>
+                </div>
+                <a href="#reserve" class="strip-cta link-red">Reserve a Table</a>
+            </div>
+            <!-- Strip 2 -->
+            <div class="exp-strip highlighted">
+                <div class="strip-bg-num">02</div>
+                <div class="strip-content">
+                    <div class="strip-header">
+                        <svg class="strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+                        <h3>Chef's Tasting Menu</h3>
+                    </div>
+                    <p class="strip-desc">Seven courses. One narrative. Zero decisions.</p>
+                    <p class="strip-details">₹3,200 per person · Wine pairing +₹1,800 · Advance booking required · Tue–Sun evenings only</p>
+                </div>
+                <a href="#reserve" class="strip-cta btn-red">Book Tasting Menu</a>
+            </div>
+            <!-- Strip 3 -->
+            <div class="exp-strip">
+                <div class="strip-bg-num">03</div>
+                <div class="strip-content">
+                    <div class="strip-header">
+                        <svg class="strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 2 10.5 2 14h20c0-3.5-4.5-12-10-12z"/><path d="M2 18h20"/><path d="M12 2v-1"/></svg>
+                        <h3>Private Dining & Events</h3>
+                    </div>
+                    <p class="strip-desc">The entire restaurant or our private room — yours for the evening.</p>
+                    <p class="strip-details">From ₹85,000 for full buyout · Custom menu · AV setup available · Upto 60 guests</p>
+                </div>
+                <a href="#contact" class="strip-cta link-red">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: PHOTO GALLERY (COLLAGE) -->
+    <section class="section-gallery">
+        <div class="gallery-heading-wrapper ink-reveal">
+            <h2 class="gallery-heading">
+                <span>Eat</span><br>
+                <span class="outline-text">With Your</span><br>
+                <span>Eyes First</span>
+            </h2>
+            <p class="gallery-subheading">Real dishes. Real fire. Real feelings.</p>
+        </div>
+        <div class="collage-grid">
+            <div class="collage-item c-1 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron2/500/600" alt="Gallery">
+                <div class="collage-caption">"The Raan. Always the Raan."</div>
+            </div>
+            <div class="collage-item c-2 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron3/600/400" alt="Gallery">
+            </div>
+            <div class="collage-item c-3 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron4/400/500" alt="Gallery">
+                <div class="collage-caption">"Coal fire. 11pm. Worth it."</div>
+            </div>
+            <div class="collage-item c-4 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron5/600/700" alt="Gallery">
+            </div>
+            <div class="collage-item c-5 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron6/500/500" alt="Gallery">
+                <div class="collage-caption">"Sunday lunch looks like this ☀️"</div>
+            </div>
+            <div class="collage-item c-6 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron7/700/500" alt="Gallery">
+            </div>
+            <div class="collage-item c-7 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron8/400/600" alt="Gallery">
+            </div>
+            <div class="collage-item c-8 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron9/600/600" alt="Gallery">
+                <div class="collage-caption">"Rasmalai Brûlée. Don't @ us."</div>
+            </div>
+            <div class="collage-item c-9 hover-trigger">
+                <img src="https://picsum.photos/seed/saffron10/500/700" alt="Gallery">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: REVIEWS -->
+    <section class="section-reviews">
+        <svg class="giant-quote-mark" viewBox="0 0 100 100" fill="#D4380D">
+            <path d="M30,20 Q10,20 10,40 Q10,60 30,60 Q30,80 10,80 L10,100 Q40,100 50,60 Q50,20 30,20 Z M80,20 Q60,20 60,40 Q60,60 80,60 Q80,80 60,80 L60,100 Q90,100 100,60 Q100,20 80,20 Z"/>
+        </svg>
+        <div class="pull-quotes ink-reveal">
+            <div class="quote-block q-large">
+                <p>"This is the most exciting Indian restaurant to open in Delhi in a decade. Chef Rawat cooks with the confidence of someone who has nothing left to prove — and that makes everything on the plate extraordinary."</p>
+                <cite>— Rashmi Uberoi · Times Food Critic · ⭐⭐⭐⭐⭐</cite>
+            </div>
+            <div class="quote-block q-med">
+                <p>"The Dal Makhani Noir alone is worth the drive from anywhere in the NCR. I've been four times this month."</p>
+                <cite>— Vikram & Priya Nair · Verified Guest</cite>
+            </div>
+            <div class="quote-block q-small">
+                <p><i>"Private dining here for my wife's birthday was the best decision I've made this year. Chef came to the table. The tasting menu was flawless."</i></p>
+                <cite>— Rohan Kapoor · Verified Guest</cite>
+            </div>
+        </div>
+        <hr class="review-divider">
+        <div class="review-platforms">
+            <span>GOOGLE: <strong>⭐ 4.8</strong></span>
+            <span>ZOMATO: <strong>⭐ 4.7</strong></span>
+            <span>TRIPADVISOR: <strong>⭐ 4.9</strong></span>
+            <span>EAZYDINER: <strong>⭐ 4.8</strong></span>
+        </div>
+    </section>
+
+    <!-- SECTION 8: RESERVATION & CONTACT -->
+    <section id="reserve" class="section-reserve">
+        <div class="reserve-left ink-reveal">
+            <h2 class="reserve-heading">Your Table<br>Is Waiting.</h2>
+            <p class="reserve-subheading"><i>Walk-ins welcome. Reservations recommended for weekends and tasting menus.</i></p>
+            <div class="contact-details">
+                <p>📍 14, Lodhi Colony Market, New Delhi 110003</p>
+                <p>📞 +91 98103 44210</p>
+                <p>📧 dine@saffronandsmoke.in</p>
+                <p>🕐 Lunch: 12:30–3:30 PM · Dinner: 7:00–11:30 PM · Closed Mondays</p>
+            </div>
+        </div>
+        <div class="reserve-right">
+            <div class="form-glass-container">
+                <form id="reservation-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" placeholder="Phone Number" required>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="date" required>
+                        <select required>
+                            <option value="" disabled selected>Time</option>
+                            <option>12:30 PM</option>
+                            <option>1:00 PM</option>
+                            <option>7:00 PM</option>
+                            <option>7:30 PM</option>
+                            <option>8:00 PM</option>
+                            <option>8:30 PM</option>
+                            <option>9:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="number" placeholder="Number of Guests" min="1" max="12" required>
+                        <select>
+                            <option value="" disabled selected>Occasion</option>
+                            <option>Regular Dinner</option>
+                            <option>Anniversary</option>
+                            <option>Birthday</option>
+                            <option>Business</option>
+                            <option>Proposal</option>
+                            <option>Private Event</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <textarea placeholder="Special Requests (Allergies, Seating Preference...)" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirm My Table</button>
+                </form>
+                <div class="form-success" style="display: none;">
+                    <svg viewBox="0 0 100 100" class="success-icon">
+                        <path d="M20,60 Q50,90 80,60" fill="none" stroke="#F0A500" stroke-width="4"/>
+                        <path d="M10,60 L90,60" stroke="#F0A500" stroke-width="4"/>
+                        <path d="M40,40 Q45,20 40,10" fill="none" stroke="#FFF" stroke-width="3" class="steam"/>
+                        <path d="M60,40 Q55,20 60,10" fill="none" stroke="#FFF" stroke-width="3" class="steam" style="animation-delay: 0.5s"/>
+                    </svg>
+                    <p>Your table is confirmed! See you soon. 🔥</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA STRIP -->
+    <section class="section-social">
+        <div class="social-header">
+            <h2 class="social-heading ink-reveal">Follow The Fire</h2>
+            <a href="#" class="social-handle">@saffronandsmoke</a>
+        </div>
+        <div class="social-strip">
+            <div class="social-item"><img src="https://picsum.photos/seed/ig1/300/300" alt="IG Post"><div class="ig-overlay">❤️ 1.2K</div></div>
+            <div class="social-item"><img src="https://picsum.photos/seed/ig2/300/300" alt="IG Post"><div class="ig-overlay">❤️ 840</div></div>
+            <div class="social-item"><img src="https://picsum.photos/seed/ig3/300/300" alt="IG Post"><div class="ig-overlay">❤️ 2.1K</div></div>
+            <div class="social-item"><img src="https://picsum.photos/seed/ig4/300/300" alt="IG Post"><div class="ig-overlay">❤️ 3.5K</div></div>
+            <div class="social-item"><img src="https://picsum.photos/seed/ig5/300/300" alt="IG Post"><div class="ig-overlay">❤️ 920</div></div>
+            <div class="social-item"><img src="https://picsum.photos/seed/ig6/300/300" alt="IG Post"><div class="ig-overlay">❤️ 1.5K</div></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                DAL MAKHANI NOIR · SMOKED LAMB RAAN · CHARCOAL NAAN · RASMALAI BRÛLÉE · BUTTER CHICKEN REINVENTED · ROGAN JOSH · PRAWN MOILEE · DAL MAKHANI NOIR · SMOKED LAMB RAAN · CHARCOAL NAAN · RASMALAI BRÛLÉE · BUTTER CHICKEN REINVENTED · ROGAN JOSH · PRAWN MOILEE ·
+            </div>
+        </div>
+        
+        <div class="footer-layout">
+            <div class="footer-left">
+                <div class="brand-stamp">
+                    <span class="stamp-saffron">SAFFRON</span><br>
+                    <span class="stamp-amp">&</span><br>
+                    <span class="stamp-smoke">SMOKE</span>
+                </div>
+                <p class="stamp-meta">Est. 2017 · New Delhi · Modern Indian</p>
+                <p class="footer-tagline">Where spice meets fire meets art.</p>
+                
+                <div class="social-icons-row">
+                    <div class="social-col">
+                        <div class="icon-circle">IG</div>
+                        <span class="icon-count">48.2K</span>
+                    </div>
+                    <div class="social-col">
+                        <div class="icon-circle">YT</div>
+                        <span class="icon-count">12.1K</span>
+                    </div>
+                    <div class="social-col">
+                        <div class="icon-circle">ZM</div>
+                        <span class="icon-count">3,200</span>
+                    </div>
+                    <div class="social-col">
+                        <div class="icon-circle">GM</div>
+                        <span class="icon-count">4.8★</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-center">
+                <div class="hours-card">
+                    <div class="hours-section">
+                        <h4>LUNCH</h4>
+                        <p>Tuesday – Sunday</p>
+                        <p>12:30 PM – 3:30 PM</p>
+                    </div>
+                    <hr class="hours-divider">
+                    <div class="hours-section">
+                        <h4>DINNER</h4>
+                        <p>Tuesday – Sunday</p>
+                        <p>7:00 PM – 11:30 PM</p>
+                    </div>
+                    <hr class="hours-divider">
+                    <div class="hours-section">
+                        <h4>CLOSED</h4>
+                        <p>Every Monday</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <div class="footer-links">
+                    <div class="link-col">
+                        <h5>Explore</h5>
+                        <a href="#menu">Menu</a>
+                        <a href="#chef">Chef</a>
+                        <a href="#">Gallery</a>
+                        <a href="#">Events</a>
+                        <a href="#">Press</a>
+                    </div>
+                    <div class="link-col">
+                        <h5>Visit</h5>
+                        <a href="#">Directions</a>
+                        <a href="#">Parking</a>
+                        <a href="#reserve">Reservations</a>
+                        <a href="#">Private Dining</a>
+                        <a href="#">Gift Cards</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-bar">
+            <span>© 2025 Saffron & Smoke. All rights reserved.</span>
+            <span>Privacy Policy · Terms · Careers</span>
+        </div>
+    </footer>
+
+    <!-- Floating UI Elements -->
+    <a href="#reserve" class="floating-fab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+    </a>
+    <div class="mobile-sticky-cta">
+        <a href="#reserve">🍽 Reserve Your Table Tonight</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
