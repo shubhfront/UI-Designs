@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décor Studio | Curated Interiors</title>
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Décor Studio</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="theme-toggle" class="theme-toggle-btn">☀️</button></li>
+        </ul>
+    </nav>
+
+    <div id="home-view">
+    <header class="hero" id="hero">
+        <div class="hero-background hero-light" id="hero-light"></div>
+        <div class="hero-background hero-deco" id="hero-deco"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Transform Your Space</h1>
+            <p class="hero-subtitle">Curated interiors for the way you live</p>
+            <button class="cta-button" id="decorate-btn">Decorate</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. About Us Section -->
+        <section class="section about-section fade-up" id="about">
+            <div class="container split-layout">
+                <div class="about-image">
+                    <img src="images/about.jpg" alt="About Us">
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">We design spaces that tell your story</h2>
+                    <hr class="gold-divider">
+                    <p>Décor Studio brings together visionary architecture and timeless interior design. We curate
+                        bespoke environments that reflect your personality while ensuring supreme comfort and
+                        functionality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Services Section -->
+        <section class="section services-section fade-up" id="services">
+            <div class="container">
+                <h2 class="section-title text-center">What We Do</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📐</div>
+                        <h3>Interior Design</h3>
+                        <p>Complete styling and curation of luxury spaces, tailored to your lifestyle.</p>
+                        <button class="ghost-button explore-service-btn" data-service="interior-design">Explore</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📏</div>
+                        <h3>Space Planning</h3>
+                        <p>Optimizing flow and functionality for harmonious living environments.</p>
+                        <button class="ghost-button explore-service-btn" data-service="space-planning">Explore</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏺</div>
+                        <h3>Décor Consulting</h3>
+                        <p>Expert advice on artwork, furniture, and accessory selection.</p>
+                        <button class="ghost-button explore-service-btn" data-service="decor-consulting">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Portfolio / Gallery Section -->
+        <section class="section portfolio-section fade-up" id="portfolio">
+            <div class="container">
+                <div class="portfolio-header">
+                    <h2 class="section-title">Our Work</h2>
+                    <hr class="gold-divider left">
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item tall" data-title="Penthouse Suite" data-desc="Experience the pinnacle of luxury with our bespoke penthouse suite design. Floor-to-ceiling windows meet curated, high-end furnishings, creating an expansive and elegant skyline retreat." data-before="images/project1-before.jpg" data-after="images/project1.jpg">
+                        <img src="images/project1.jpg" alt="Project 1">
+                        <div class="overlay"><span>Penthouse Suite</span></div>
+                    </div>
+                    <div class="portfolio-item wide" data-title="Minimalist Villa" data-desc="A masterclass in minimalism. We transformed this raw space into a serene villa sanctuary utilizing clean lines, neutral tones, and abundant natural light." data-before="images/project2-before.jpg" data-after="images/project2.jpg">
+                        <img src="images/project2.jpg" alt="Project 2">
+                        <div class="overlay"><span>Minimalist Villa</span></div>
+                    </div>
+                    <div class="portfolio-item" data-title="Urban Loft" data-desc="From a dusty, raw industrial shell to a chic urban loft. We preserved the authentic exposed brick while introducing modern luxury elements and bespoke furniture." data-before="images/project3-before.jpg" data-after="images/project3.jpg">
+                        <img src="images/project3.jpg" alt="Project 3">
+                        <div class="overlay"><span>Urban Loft</span></div>
+                    </div>
+                    
+                    <!-- Empty Space 1: Designing Text -->
+                    <div class="portfolio-text-item">
+                        <h3 style="font-family: var(--font-heading); color: var(--gold); font-size: 3.5rem; line-height: 1.2;">The Art of<br>Designing</h3>
+                    </div>
+                    <div class="portfolio-item wide" data-title="Coastal Retreat" data-desc="A complete reimagining of an outdated space. We breathed life into this coastal retreat with light woods, breezy linens, and a design that frames the breathtaking ocean view." data-before="images/project4-before.jpg" data-after="images/project4.jpg">
+                        <img src="images/project4.jpg" alt="Project 4">
+                        <div class="overlay"><span>Coastal Retreat</span></div>
+                    </div>
+                    <div class="portfolio-item tall" data-title="Modern Farmhouse" data-desc="We took this conceptual farmhouse layout and brought it to life. Rustic luxury is achieved through exposed wooden beams, warm ambient lighting, and rich textures." data-before="images/project5-before.jpg" data-after="images/project5.jpg">
+                        <img src="images/project5.jpg" alt="Project 5">
+                        <div class="overlay"><span>Modern Farmhouse</span></div>
+                    </div>
+                    <div class="portfolio-item" data-title="Art Deco Office" data-desc="An inspiring transformation of a dull, bare room into a professional art deco workspace. Geometric patterns and bold materials create an environment of pure elegance." data-before="images/project6-before.jpg" data-after="images/project6.jpg">
+                        <img src="images/project6.jpg" alt="Project 6">
+                        <div class="overlay"><span>Art Deco Office</span></div>
+                    </div>
+
+                    <!-- Empty Space 2: Decoration Text -->
+                    <div class="portfolio-text-item">
+                        <h3 style="font-family: var(--font-heading); color: var(--gold); font-size: 3.5rem; line-height: 1.2;">Mastering<br>Decoration</h3>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 3rem;">
+                    <button class="cta-button outline">View All Projects</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Why Choose Us / Stats Section -->
+        <section class="section stats-section fade-up" id="stats">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-number" data-target="350">0</span><span
+                            class="stat-plus">+</span></div>
+                    <p class="stat-label">Projects</p>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-number" data-target="12">0</span></div>
+                    <p class="stat-label">Years Experience</p>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-number" data-target="40">0</span><span
+                            class="stat-plus">+</span></div>
+                    <p class="stat-label">Awards</p>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number-wrapper"><span class="stat-number" data-target="98">0</span><span
+                            class="stat-plus">%</span></div>
+                    <p class="stat-label">Happy Clients</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Testimonials Section -->
+        <section class="section testimonials-section fade-up" id="testimonials">
+            <div class="container">
+                <h2 class="section-title text-center">What Our Clients Say</h2>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" id="prev-btn">&#10094;</button>
+                    <div class="carousel-track-wrapper">
+                        <div class="carousel-track" id="testimonial-track">
+                            <div class="testimonial-card">
+                                <div class="quote-mark">"</div>
+                                <p class="testimonial-text">Décor Studio completely transformed our home. Their
+                                    attention to detail and ability to capture our vision was extraordinary.</p>
+                                <p class="client-name">Sarah Jenkins, New York</p>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="quote-mark">"</div>
+                                <p class="testimonial-text">The level of elegance and comfort they brought to our space
+                                    exceeded all expectations. A truly seamless experience.</p>
+                                <p class="client-name">David & Emma, London</p>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="quote-mark">"</div>
+                                <p class="testimonial-text">Professional, creative, and passionate. They don't just
+                                    design rooms; they craft lifestyles.</p>
+                                <p class="client-name">Michael Chang, San Francisco</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" id="next-btn">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Process Section -->
+        <section class="section process-section fade-up" id="process">
+            <div class="container">
+                <h2 class="section-title text-center">How It Works</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <h3>Consultation</h3>
+                        <p>Understanding your vision and space.</p>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <h3>Concept Design</h3>
+                        <p>Curating materials and layouts.</p>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <h3>Execution</h3>
+                        <p>Bringing the design to life seamlessly.</p>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <h3>Reveal</h3>
+                        <p>Welcome to your newly transformed space.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CTA / Contact Banner -->
+        <section class="section cta-banner fade-up" id="contact">
+            <div class="container text-center">
+                <h2 class="cta-heading">Ready to Reimagine Your Space?</h2>
+                <p class="cta-subtext">Let's collaborate to create something extraordinary.</p>
+                <div class="cta-buttons">
+                    <button class="cta-button filled">Book a Consultation</button>
+                    <button class="cta-button outline-light">See Our Portfolio</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    </div> <!-- end home-view -->
+
+    <!-- Single Page Application Service Details View -->
+    <div id="service-view" class="service-view" style="display: none;">
+        <div class="service-hero" id="service-hero-bg">
+            <div class="service-hero-content">
+                <button class="ghost-button" id="back-to-home-btn" style="position: absolute; top: 30px; left: 30px; border-color: var(--cream); color: var(--cream);">&larr; Back to Home</button>
+                <h1 id="service-title">Service Title</h1>
+            </div>
+        </div>
+        
+        <section class="section">
+            <div class="container service-detail-grid">
+                <div class="service-detail-text">
+                    <h2>Overview</h2>
+                    <hr class="gold-divider left">
+                    <p id="service-overview" style="margin-bottom: 2rem;">Detailed overview goes here.</p>
+                    
+                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold);">What's Included</h3>
+                    <ul id="service-features" style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8; font-size: 1.1rem;">
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                    </ul>
+                </div>
+                <div class="service-detail-image-container">
+                    <img id="service-detail-img" src="" alt="Service Detail">
+                </div>
+            </div>
+        </section>
+        
+        <section class="section text-center" style="background-color: var(--charcoal); color: var(--cream);">
+            <div class="container">
+                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to begin?</h2>
+                <button class="cta-button filled">Book this Service</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- 9. Footer -->
+    <footer class="footer fade-up">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">Décor Studio</div>
+                <p>Curated interiors for the way you live.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.163 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.604 0 12.017 0z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Interior Design</a></li>
+                    <li><a href="#">Space Planning</a></li>
+                    <li><a href="#">Décor Consulting</a></li>
+                    <li><a href="#">Custom Furniture</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>123 Luxury Ave, Suite 400</p>
+                <p>New York, NY 10001</p>
+                <p>hello@decorstudio.com</p>
+                <p>+1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Décor Studio. Designed with ❤️ for beautiful spaces.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-image-col">
+                    <img id="modal-image" src="" alt="Project Image">
+                    <button class="cta-button" id="before-after-btn">Before</button>
+                </div>
+                <div class="modal-text-col">
+                    <h2 id="modal-title">Project Title</h2>
+                    <hr class="gold-divider left">
+                    <p id="modal-desc">Project description goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
