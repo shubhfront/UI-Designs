@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagunitas IPA Experience</title>
+
+    <!-- Google Fonts: Oswald for Impact, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP Core & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- YouTube IFrame Player API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body class="antialiased text-black">
+
+    <!-- LAYER 1: THE NAVIGATION (Z-INDEX: 50) -->
+    <header id="main-nav" class="fixed top-0 left-0 w-full px-12 py-6 flex justify-between items-center z-50 transition-all duration-300 pointer-events-auto">
+        <!-- Logo Area -->
+        <div class="flex items-center cursor-pointer">
+            <h1 class="font-impact text-3xl tracking-widest text-lagunitas-red">COKE</h1>
+        </div>
+        
+        <!-- Center Nav Links -->
+        <nav class="hidden md:flex space-x-12 text-sm font-bold uppercase tracking-widest">
+            <a href="#" class="hover:text-lagunitas-red transition-colors">Products</a>
+            <a href="#" class="hover:text-lagunitas-red transition-colors">Flavors</a>
+            <a href="#" class="hover:text-lagunitas-red transition-colors">Pairings</a>
+            <a href="#" class="hover:text-lagunitas-red transition-colors">History</a>
+        </nav>
+
+        <!-- Right Action -->
+        <div>
+            <button class="bg-lagunitas-red text-white text-xs font-bold uppercase tracking-widest px-8 py-3 border border-lagunitas-red hover:bg-white hover:text-lagunitas-red transition-colors">
+                ORDER
+            </button>
+        </div>
+    </header>
+
+    <!-- LAYER 2: THE FIXED CENTERPIECE BOTTLE (Z-INDEX: 30) -->
+    <div id="bottle-container" class="fixed inset-0 w-full h-full pointer-events-none z-30 flex items-center justify-center">
+        <!-- We use an unsplash beer bottle that resembles the IPA bottle -->
+        <img id="centerpiece-bottle" 
+             src="assets/bottle.png"
+             class="h-[75vh] w-auto object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.4)] origin-center will-change-transform" 
+             alt="Lagunitas IPA Bottle" />
+    </div>
+
+    <!-- LAYER 3: THE SCROLLABLE CONTENT (Z-INDEX: 10 & 40) -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            
+            <!-- SECTION 1: THE HERO (0-100vh) -->
+            <section class="section-1 bg-gradient-coke-radial w-full h-screen relative flex items-center justify-center overflow-hidden">
+                <!-- Back solid text (Z-Index: 10) -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <h1 class="hero-title text-gradient-coke font-impact text-[14vw] leading-[0.8] text-center flex flex-col pb-[4vw] pt-[1vw]">
+                        <span>UNLEASH</span>
+                        <span>THE CHILL</span>
+                    </h1>
+                </div>
+                <!-- Front outline text (Z-Index: 40) -->
+                <div class="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
+                    <h1 class="hero-title text-outline font-impact text-[14vw] leading-[0.8] text-center flex flex-col pb-[4vw] pt-[1vw]">
+                        <span>UNLEASH</span>
+                        <span>THE CHILL</span>
+                    </h1>
+                </div>
+            </section>
+
+            <!-- SECTION 2: THE DETAILS (100-200vh) -->
+            <section class="section-2 w-full h-screen relative flex items-center justify-between px-16 overflow-hidden">
+                <!-- Left Side -->
+                <div class="s2-left z-40 w-1/3 flex flex-col justify-center opacity-0 -translate-x-10">
+                    <p class="text-sm font-semibold uppercase tracking-widest mb-2 italic">original recipe</p>
+                    <h2 class="font-impact text-[8vw] leading-[0.85] mb-6">THE CLASSIC<br>COLA</h2>
+                    <button class="bg-black text-white text-xs font-bold uppercase tracking-widest px-8 py-3 w-max hover:bg-lagunitas-red transition-colors">
+                        Buy Now
+                    </button>
+                </div>
+                <!-- Right Side -->
+                <div class="s2-right z-40 w-1/4 flex flex-col space-y-6 opacity-0 translate-x-10 mt-20">
+                    <div class="border-t-2 border-black pt-2">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-bold text-xs">CALORIES</span>
+                            <span class="font-impact text-4xl">140</span>
+                        </div>
+                        <p class="text-[10px] leading-tight text-gray-700">A balanced, full-flavored cola. A bit of caramel and citrus oils round out the signature fizz.</p>
+                    </div>
+                    <div class="border-t-2 border-black pt-2">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-bold text-xs">CARBONATION</span>
+                            <span class="font-impact text-4xl">4.2 vol</span>
+                        </div>
+                        <p class="text-[10px] leading-tight text-gray-700">Carbonated for that sharp, crisp bite — the fizz that makes every sip pop.</p>
+                    </div>
+                    <div class="border-t-2 border-black pt-2">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-bold text-xs">SUGAR</span>
+                            <span class="font-impact text-4xl">39g</span>
+                        </div>
+                        <p class="text-[10px] leading-tight text-gray-700">Made with real cane sugar for that rich, classic sweetness you remember.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: MOUTH FEELS (200-300vh) -->
+            <section class="section-3 w-full h-screen relative flex items-center justify-between px-16 overflow-hidden">
+                <!-- Background Text -->
+                <div class="absolute inset-0 flex items-start justify-center z-10 pointer-events-none pt-12">
+                    <!-- Red outline style -->
+                    <h2 class="s3-bg-text text-lagunitas-red font-impact text-[21vw] leading-[0.8] opacity-0 translate-x-32">
+                        MOUTHFEELS
+                    </h2>
+                </div>
+                
+                <!-- Left Side: Video Container -->
+                <div class="s3-left z-40 w-1/4 opacity-0 -translate-x-10 mt-64">
+                    <div class="relative w-full aspect-video border-2 border-black group overflow-hidden bg-black">
+                        <!-- YouTube IFrame Container -->
+                        <div id="yt-player" class="absolute inset-0 w-full h-full pointer-events-none"></div>
+                        
+                        <!-- Custom Controls Overlay -->
+                        <div class="absolute inset-0 z-10 p-2 flex flex-col justify-end pointer-events-none">
+                            <div class="flex justify-between items-end w-full pointer-events-auto">
+                                <!-- Mute/Unmute Toggle -->
+                                <button id="mute-toggle" class="bg-black/70 hover:bg-lagunitas-red text-white p-2 rounded transition-colors" title="Unmute">
+                                    <!-- Muted Icon -->
+                                    <svg id="icon-muted" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
+                                    <!-- Unmuted Icon -->
+                                    <svg id="icon-unmuted" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
+                                </button>
+                                
+                                <!-- Watch on YouTube button -->
+                                <a href="https://www.youtube.com/watch?v=8xCqmYbXH9w" target="_blank" rel="noopener noreferrer" class="bg-black/70 hover:bg-lagunitas-red text-white p-2 rounded transition-colors" title="Watch on YouTube">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-[16px] leading-tight" style="font-family: 'Caveat', cursive;">Hear it from our brewmonster<br>Jeremy Marshall</p>
+                </div>
+
+                <!-- Right Side: Text -->
+                <div class="s3-right z-40 w-[40%] opacity-0 translate-x-10 mt-64">
+                    <p class="text-[16px] font-bold mb-6 leading-relaxed">A perfectly balanced, refreshing cola with signature fizz and caramel notes. The taste is a clean mix of bold sweetness and crisp effervescence.</p>
+                    <h3 class="font-impact text-2xl mb-2 tracking-wider">FLAVORS</h3>
+                    <p class="text-[16px] text-gray-800 leading-relaxed mb-4 font-medium">From the timeless Original Taste to the zero-sugar crispness of Coke Zero and the light, refreshing finish of Diet Coke, our lineup delivers the ultimate chill.</p>
+                    <p class="text-[16px] text-gray-800 leading-relaxed font-medium">A legendary beverage crafted for lifelong cola lovers.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4: THE SPLATS (300-400vh) -->
+            <section class="section-4 w-full h-screen relative flex items-center justify-center overflow-hidden">
+                <!-- Splat Backgrounds (Z-10) -->
+                <div class="absolute inset-0 z-10 pointer-events-none">
+                    <!-- Splat 1: Caramel Notes -->
+                    <div class="splat splat-red splat-1 w-[26rem] h-[26rem] absolute top-[2%] left-[25%] opacity-0 scale-50 flex-col px-14 text-center text-white transform -rotate-6">
+                        <div class="mb-2 w-6 h-6 border-2 border-white rounded-full mx-auto flex items-center justify-center">
+                            <span class="text-[10px]">🍯</span>
+                        </div>
+                        <h3 class="font-impact text-2xl mb-3 tracking-widest text-outline-white">CARAMEL NOTES</h3>
+                        <p class="text-[12px] leading-relaxed font-medium">The signature caramel flavor provides a rich, sweet foundation that balances the bold carbonation perfectly.</p>
+                    </div>
+
+                    <!-- Splat 2: Crisp Bite -->
+                    <div class="splat splat-red splat-2 w-[24rem] h-[24rem] absolute top-[40%] left-[32%] opacity-0 scale-50 flex-col px-12 text-center text-white transform rotate-3">
+                        <div class="mb-2 w-6 h-6 border-2 border-white rounded-full mx-auto flex items-center justify-center">
+                            <span class="text-[10px]">⚡</span>
+                        </div>
+                        <h3 class="font-impact text-2xl mb-3 tracking-widest text-outline-white">CRISP BITE</h3>
+                        <p class="text-[12px] leading-relaxed font-medium">The intense carbonation delivers that unmistakable crisp bite, making every sip incredibly refreshing.</p>
+                    </div>
+
+                    <!-- Splat 3: Secret Recipe -->
+                    <div class="splat splat-black splat-3 w-[36rem] h-[36rem] absolute top-[22%] right-[2%] opacity-0 scale-50 flex-col px-20 text-center text-white transform -rotate-3">
+                        <div class="mb-2 w-6 h-6 border-2 border-white rounded-full mx-auto flex items-center justify-center">
+                            <span class="text-[10px]">🤫</span>
+                        </div>
+                        <h3 class="font-impact text-2xl mb-3 tracking-widest text-outline-white">SECRET RECIPE</h3>
+                        <p class="text-[12px] leading-relaxed font-medium">Crafted with a legendary blend of natural flavors, citrus oils, and spices. It's the iconic taste that has defined cola for generations.</p>
+                    </div>
+                </div>
+                
+                <!-- Foreground Glass (Z-40) -->
+                <div class="absolute left-4 bottom-0 z-40">
+                    <img class="glass-img h-[60vh] object-contain opacity-0 -translate-x-32" 
+                         src="assets/glass.png" 
+                         alt="Beer Glass">
+                </div>
+            </section>
+
+            <!-- SECTION 5: LINEUP & RECIPES (400-500vh) -->
+            <section class="section-5 w-full h-[180vh] relative overflow-hidden">
+                <!-- Top Lineup Area (first 100vh) -->
+                <div class="lineup-area w-full h-screen relative flex items-center justify-center">
+                    <!-- Background Text -->
+                    <div class="absolute top-1/4 w-full text-center z-10">
+                        <p class="text-sm font-bold uppercase tracking-widest mb-2 italic">Availability:</p>
+                        <h2 class="s5-bg-text font-impact text-[12vw] text-gray-300 tracking-tighter opacity-0 translate-y-10">YEAR ROUND</h2>
+                    </div>
+
+                    <!-- Lineup Items (Z-20, bottle is Z-30) -->
+                    <div class="absolute inset-0 flex items-end justify-center space-x-12 z-20 pointer-events-none pb-[10vh]">
+                        <div class="lineup-item opacity-0 translate-x-20">
+                            <div class="w-16 h-64 bg-gray-800 rounded-t-md mx-auto relative flex items-center justify-center"><span class="text-white font-impact rotate-90">TAP</span></div>
+                            <p class="text-[10px] font-bold text-center mt-4 text-transparent">TAP</p>
+                        </div>
+                        <div class="lineup-item opacity-0 translate-x-10">
+                            <img class="h-64 object-contain mx-auto" src="assets/coke.png" alt="6 Pack">
+                            <p class="text-[10px] font-bold text-center mt-4">12 OZ BOTTLES<br>6-PACK</p>
+                        </div>
+                        <!-- Space for the main bottle to fit -->
+                        <div class="w-48 flex flex-col justify-end">
+                            <p class="text-[10px] font-bold text-center mt-4">CLASSIC BOTTLE<br>8 OZ GLASS</p>
+                        </div> 
+                        <div class="lineup-item opacity-0 -translate-x-10">
+                            <img class="h-48 object-contain mx-auto" src="assets/cola.png" alt="Can">
+                            <p class="text-[10px] font-bold text-center mt-4">12 OZ CANS<br>12-PACK</p>
+                        </div>
+                        <div class="lineup-item opacity-0 -translate-x-20">
+                            <img class="h-56 object-contain mx-auto" src="assets/diet.png" alt="Tall Can">
+                            <p class="text-[10px] font-bold text-center mt-4">19.2 OZ CANS<br>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Recipes Area (slides up on further scroll) -->
+                <div class="recipes-panel absolute bottom-0 left-0 w-full h-[60vh] bg-white z-40 border-t-4 border-black flex items-center justify-between px-16">
+                    <div class="w-7/12 flex space-x-4">
+                        <!-- Left Column -->
+                        <div class="w-1/2 flex flex-col space-y-4">
+                            <div class="relative group overflow-hidden rounded-lg">
+                                <img class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Pizza">
+                                <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white font-impact tracking-wider">PIZZA & CLASSIC</p>
+                                </div>
+                            </div>
+                            <div class="relative group overflow-hidden rounded-lg">
+                                <img class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=400&q=80" alt="Tacos">
+                                <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white font-impact tracking-wider">TACOS & VANILLA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right Column (Staggered) -->
+                        <div class="w-1/2 flex flex-col space-y-4 pt-12">
+                            <div class="relative group overflow-hidden rounded-lg">
+                                <img class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" alt="Burger">
+                                <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white font-impact tracking-wider">BURGER & ZERO SUGAR</p>
+                                </div>
+                            </div>
+                            <div class="relative group overflow-hidden rounded-lg">
+                                <img class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="BBQ Ribs">
+                                <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white font-impact tracking-wider">BBQ & DIET COKE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-4/12 pr-8">
+                        <p class="text-sm font-bold uppercase tracking-widest text-red-600 mb-2">Perfect Pairings</p>
+                        <h3 class="font-impact text-6xl leading-[0.9] mb-6">A RECIPE<br>FOR<br>MAGIC.</h3>
+                        <p class="text-sm font-medium text-gray-700 leading-relaxed">Whether it's a juicy burger with a Coke Zero or a classic pizza with a Classic Cola, every meal tastes better together. Discover the perfect flavor to match your cravings.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="bg-black text-white w-full py-32 px-16 flex flex-col md:flex-row justify-between items-center relative z-50">
+                <!-- Left side: Coca-Cola Logo -->
+                <div class="mb-12 md:mb-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola Logo" class="h-32 w-auto opacity-100 hover:opacity-90 transition-opacity">
+                </div>
+                
+                <!-- Right side: Links -->
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-12 text-sm font-semibold uppercase tracking-wider text-gray-400">
+                    <a href="#" class="hover:text-lagunitas-red transition-colors">Products</a>
+                    <a href="#" class="hover:text-lagunitas-red transition-colors">History</a>
+                    <a href="#" class="hover:text-lagunitas-red transition-colors">Sustainability</a>
+                    <a href="#" class="hover:text-lagunitas-red transition-colors">Careers</a>
+                    <a href="#" class="hover:text-lagunitas-red transition-colors">Contact Us</a>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
