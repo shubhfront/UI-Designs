@@ -1,0 +1,92 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f3f1e9;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #000;
+}
+
+/* Typography Classes */
+.font-impact {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.text-lagunitas-red {
+  color: #c9252c;
+}
+.bg-lagunitas-red {
+  background-color: #c9252c;
+}
+
+.text-gradient-coke {
+  background: linear-gradient(180deg, #f04e30 0%, #b31b23 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-coke-radial {
+  background: radial-gradient(circle at center, #d8eef7 0%, #f3f1e9 60%, #f3f1e9 100%);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px #c9252c;
+  color: transparent;
+}
+
+/* Hide scrollbar for cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f1e9;
+}
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Special Splat SVG Styles */
+.splat {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Splat backgrounds using standard inline SVGs for blobs */
+.splat-red {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%23c9252c" d="M 80,10 C 110,40 105,30 140,25 C 130,50 145,55 180,50 C 160,75 165,85 190,110 C 160,120 150,135 170,165 C 135,145 120,155 110,185 C 95,150 75,155 45,175 C 60,140 45,125 15,130 C 40,105 35,85 5,70 C 40,60 50,45 25,15 C 65,35 80,25 80,10 Z" /></svg>');
+}
+
+.splat-orange {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%23c9252c" d="M 80,10 C 110,40 105,30 140,25 C 130,50 145,55 180,50 C 160,75 165,85 190,110 C 160,120 150,135 170,165 C 135,145 120,155 110,185 C 95,150 75,155 45,175 C 60,140 45,125 15,130 C 40,105 35,85 5,70 C 40,60 50,45 25,15 C 65,35 80,25 80,10 Z" /></svg>');
+}
+
+.splat-black {
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%23000000" d="M 80,10 C 110,40 105,30 140,25 C 130,50 145,55 180,50 C 160,75 165,85 190,110 C 160,120 150,135 170,165 C 135,145 120,155 110,185 C 95,150 75,155 45,175 C 60,140 45,125 15,130 C 40,105 35,85 5,70 C 40,60 50,45 25,15 C 65,35 80,25 80,10 Z" /></svg>');
+}
