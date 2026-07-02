@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple-Style Scroll Scrubbing</title>
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div id="progress-text">Loading 0%</div>
+        <div class="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="premium-nav">
+        <div class="nav-logo">
+            <img src="assets/sprite.png" alt="Sprite Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#">Products</a>
+            <a href="#">Story</a>
+            <a href="#">Sustainability</a>
+        </div>
+        <div class="nav-cta">
+            <button class="nav-btn">BUY NOW</button>
+        </div>
+    </nav>
+
+    <!-- Scroll Structure (Pinned by GSAP) -->
+    <div id="sticky-container">
+        <canvas id="frame-canvas"></canvas>
+
+        <img id="intro-logo" src="assets/sprite.png" alt="Sprite Logo">
+
+        <!-- Final UI Overlay -->
+        <div id="hero-ui-layer">
+            <div class="hero-content">
+                <h1>BEYOND REFRESH.</h1>
+                <h2>TASTE THE CHILL.</h2>
+                <button class="glow-btn">EXPLORE CHILL</button>
+            </div>
+            <div class="bottom-bar">
+                <div class="pagination">
+                    <div class="line active"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="sparkle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8L12 0Z" fill="white" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottle Sequence Section -->
+    <div class="bottle-sequence-spacer">
+        <div class="bottle-sequence-sticky">
+            <!-- Phase 1 Backgrounds -->
+            <div class="bottle-roll-bg-white"></div>
+            <div class="bottle-roll-bg-green">
+                <div class="green-bg-content">
+                    <div class="green-content-inner">
+                        <h1 class="crisp-title">A CRISP BREAK<br>FROM THE <span class="yellow-text">ORDINARY.</span> <span class="title-icon">🍋</span></h1>
+                        <p class="crisp-subtitle">Lemon-lime sparkle. Ice-cold refreshment.<br><span class="yellow-text bold-text">Sprite</span> hits different.</p>
+                        <button class="crisp-btn">EXPLORE THE REFRESHMENT &rarr;</button>
+
+                        <div class="crisp-features">
+                            <div class="crisp-feature">
+                                <div class="feature-icon">🍋</div>
+                                <h4>ZESTY LEMON-LIME</h4>
+                                <p>Bright, bold,<br>refreshing taste.</p>
+                            </div>
+                            <div class="crisp-feature">
+                                <div class="feature-icon">🫧</div>
+                                <h4>CRISP & BUBBLY</h4>
+                                <p>That unmistakable<br>sparkling kick.</p>
+                            </div>
+                            <div class="crisp-feature border-none">
+                                <div class="feature-icon">❄️</div>
+                                <h4>BEST SERVED ICE COLD</h4>
+                                <p>Open. Sip. Refresh.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phase 2 Background -->
+            <div class="bottle-lay-bg"></div>
+
+            <!-- The Bottle -->
+            <img src="assets/spbottle.png" class="bottle-anim-img" alt="Cold drink bottle" />
+
+            <!-- Final UI Overlay -->
+            <div class="final-ui-container">
+                <div class="final-content-grid">
+                    <!-- Top Left -->
+                    <div class="ui-card thirst-card lay-ui-element">
+                        <div class="card-inner">
+                            <h1>THIRST<br>FOR <span class="neon-text">MORE?</span></h1>
+                            <p>The lemon-lime refreshment<br>that keeps you moving.</p>
+                            <button class="outline-btn"><span class="icon">▤</span> EXPLORE SPRITE</button>
+                        </div>
+                        <img src="assets/bottle_splash.png" class="card-bottle-img" alt="Sprite">
+                    </div>
+
+                    <!-- Middle Left -->
+                    <div class="ui-card story-card lay-ui-element">
+                        <div class="card-inner">
+                            <span class="card-tag">● OUR STORY</span>
+                            <h2>CLEAR<br>REFRESHMENT<br>SINCE 1961</h2>
+                            <p>Born in Atlanta. Loved worldwide.<br>Sprite continues to bring a crisp<br>and clean taste to every moment.</p>
+                            <button class="outline-btn">DISCOVER MORE &gt;</button>
+                        </div>
+                        <img src="assets/spbottle.png" class="card-bottle-img-small" alt="Sprite">
+                    </div>
+
+                    <!-- Center Titles -->
+                    <div class="center-title-block lay-ui-element">
+                        <h3 class="subtitle">LEMON - LIME</h3>
+                        <h1 class="main-title">REFRESHINGLY<br>DIFFERENT</h1>
+                        <div class="icon-row">
+                            <div class="icon-item">
+                                <div class="circle-icon">🍋</div>
+                                <span>ZESTY TASTE</span>
+                            </div>
+                            <div class="icon-item">
+                                <div class="circle-icon">🫧</div>
+                                <span>CRISP & CLEAR</span>
+                            </div>
+                            <div class="icon-item">
+                                <div class="circle-icon">❄️</div>
+                                <span>ICE COLD<br>REFRESHMENT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row -->
+                    <div class="bottom-cards-row">
+                        <div class="ui-card small-card has-bg-img lay-ui-element">
+                            <img src="assets/lime_splash.png" class="card-bg-img lime-img" alt="Lime Splash">
+                            <div class="card-inner">
+                                <span class="card-tag">● INGREDIENTS</span>
+                                <h2>SIMPLE<br>& PURE</h2>
+                                <p>Made with quality ingredients<br>for a clean, crisp taste.</p>
+                                <div class="card-action-btn">&gt;</div>
+                            </div>
+                        </div>
+                        <div class="ui-card small-card has-bg-img lay-ui-element">
+                            <img src="assets/flavor_bottles.png" class="card-bg-img flavors-img" alt="Flavor Bottles">
+                            <div class="card-inner">
+                                <span class="card-tag">● FLAVORS</span>
+                                <h2>MORE<br>TO LOVE</h2>
+                                <p>Explore exciting flavors and<br>find your favorite.</p>
+                                <div class="card-action-btn">&gt;</div>
+                            </div>
+                        </div>
+                        <div class="ui-card small-card lay-ui-element">
+                            <div class="card-inner">
+                                <span class="card-tag">● FIND SPRITE</span>
+                                <h2>ALWAYS<br>NEAR YOU</h2>
+                                <p>Find Sprite in stores<br>and online near you.</p>
+                                <div class="card-action-btn">&gt;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dotted SVG connecting line (pseudo-element style) -->
+                <svg class="connecting-line lay-ui-element" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+                    <!-- Simplified path to simulate the connection -->
+                    <path d="M 400 350 C 500 350, 500 600, 400 600 C 300 600, 300 900, 400 900 L 1500 900" stroke="#39ff14" stroke-width="2" stroke-dasharray="8 8" fill="none" opacity="0.6" />
+                    <circle cx="390" cy="350" r="8" fill="#000" stroke="#39ff14" stroke-width="3" />
+                    <circle cx="380" cy="600" r="8" fill="#000" stroke="#39ff14" stroke-width="3" />
+                    <circle cx="400" cy="900" r="8" fill="#000" stroke="#39ff14" stroke-width="3" />
+                    <circle cx="1400" cy="900" r="8" fill="#000" stroke="#39ff14" stroke-width="3" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Horizontal Scroll Showcase -->
+    <section class="horizontal-showcase-container">
+        <div class="horizontal-showcase-sticky">
+            <h2 class="showcase-title">EXPLORE THE LINEUP</h2>
+            <div class="horizontal-scroll-track">
+                <div class="flavor-card">
+                    <img src="assets/flavor_bottles.png" alt="Original Sprite">
+                    <h3>SPRITE ORIGINAL</h3>
+                    <p>The classic, crisp, lemon-lime taste you know and love.</p>
+                </div>
+                <div class="flavor-card">
+                    <img src="assets/flavor_bottles.png" alt="Sprite Zero" style="filter: hue-rotate(180deg) brightness(0.8);">
+                    <h3>SPRITE ZERO SUGAR</h3>
+                    <p>All the crisp, lemon-lime taste with zero sugar.</p>
+                </div>
+                <div class="flavor-card">
+                    <img src="assets/flavor_bottles.png" alt="Sprite Cherry" style="filter: hue-rotate(300deg);">
+                    <h3>SPRITE CHERRY</h3>
+                    <p>A hit of cherry flavor to switch things up.</p>
+                </div>
+                <div class="flavor-card">
+                    <img src="assets/flavor_bottles.png" alt="Sprite Tropical" style="filter: hue-rotate(60deg);">
+                    <h3>SPRITE TROPICAL MIX</h3>
+                    <p>A refreshing blend of strawberry and pineapple.</p>
+                </div>
+                <div class="flavor-card">
+                    <img src="assets/flavor_bottles.png" alt="Sprite Lymonade" style="filter: hue-rotate(45deg) saturate(1.5);">
+                    <h3>SPRITE LYMONADE</h3>
+                    <p>The crisp taste of Sprite with a splash of lemonade.</p>
+                </div>
+                <div class="flavor-card">
+                    <img src="assets/flavor_bottles.png" alt="Sprite Ginger" style="filter: sepia(1) hue-rotate(15deg) saturate(2);">
+                    <h3>SPRITE GINGER</h3>
+                    <p>A hit of real ginger flavor for an extra kick.</p>
+                </div>
+                <div class="flavor-card">
+                    <img src="assets/flavor_bottles.png" alt="Sprite Cranberry" style="filter: hue-rotate(330deg) saturate(1.2);">
+                    <h3>SPRITE WINTER SPICED CRANBERRY</h3>
+                    <p>A seasonal favorite blending tart cranberry with warm spices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Sustainability Section -->
+    <section class="parallax-sustainability">
+        <div class="parallax-bg" style="background-image: url('assets/parallax_bg.png');"></div>
+        <div class="parallax-content">
+            <h2>REFRESHING THE PLANET</h2>
+            <p>Our commitment to 100% recycled bottles and water stewardship.</p>
+            <button class="crisp-btn">OUR IMPACT &rarr;</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="premium-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/sprite.png" class="footer-logo" alt="Sprite Logo">
+                <p>Stay crisp. Stay refreshed.</p>
+                <div class="social-links">
+                    <span>📱</span>
+                    <span>📸</span>
+                    <span>🐦</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>EXPLORE</h4>
+                <a href="#">Products</a>
+                <a href="#">Our Story</a>
+                <a href="#">Sustainability</a>
+            </div>
+            <div class="footer-newsletter">
+                <h4>STAY IN THE LOOP</h4>
+                <div class="input-group">
+                    <input type="email" placeholder="ENTER YOUR EMAIL">
+                    <button>&gt;</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Coca-Cola Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP & ScrollTrigger Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Link to external JS -->
+    <script src="script.js"></script>
+</body>
+</html>

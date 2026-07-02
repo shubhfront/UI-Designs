@@ -1,0 +1,818 @@
+/* style.css */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
+
+/* --- NAVBAR --- */
+.premium-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+.nav-logo img {
+    height: 35px;
+    object-fit: contain;
+}
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+.nav-links a:hover {
+    color: #39ff14;
+}
+.nav-btn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #39ff14;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+.nav-btn:hover {
+    background: #39ff14;
+    color: #000;
+}
+
+/* --- LOADING SCREEN --- */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.progress-bar-container {
+    width: 200px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #fff;
+    transition: width 0.1s;
+}
+
+#progress-text {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+}
+
+/* --- SCROLL LAYOUT --- */
+#sticky-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+#intro-logo {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    transform: rotateX(-20deg);
+    width: 225px;
+    z-index: 10;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
+/* --- CANVAS --- */
+canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* GPU-accelerated scaling, fills viewport */
+    opacity: 0; /* Managed by JS */
+    transition: opacity 1s ease-in;
+}
+
+/* --- UI LAYER --- */
+#hero-ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none; /* Let scroll events pass through to canvas */
+    opacity: 0; /* Hidden initially, revealed by GSAP */
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 60px;
+    box-sizing: border-box;
+}
+
+/* Enable pointer events on interactive children */
+#hero-ui-layer > * {
+    pointer-events: auto;
+}
+
+
+
+.hero-content {
+    align-self: center; /* Center vertically in column, which is horizontal center */
+    margin-top: auto;
+    margin-bottom: 8%; /* Push up slightly from bottom */
+    margin-right: 0;
+    max-width: 800px;
+    text-align: center; /* Center text inside the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children like button */
+}
+
+.hero-content h1 {
+    font-size: 4.5rem; /* Large font */
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    white-space: nowrap; /* Keep on one line */
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    font-weight: 400; /* Not bold */
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.glow-btn {
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background: rgba(255, 255, 255, 0.15); /* Slightly less opaque base */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px rgba(173, 255, 47, 0.6); /* Yellow-green glow */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 1 !important; /* Force visible in case GSAP fails to set it */
+}
+
+.glow-btn:hover {
+    box-shadow: 0 0 45px rgba(173, 255, 47, 0.9);
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pagination .line {
+    width: 30px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    transition: width 0.3s, background 0.3s;
+}
+
+.pagination .line.active {
+    width: 50px;
+    background: #fff;
+}
+
+.sparkle {
+    position: absolute;
+    right: 0;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    #hero-ui-layer {
+        padding: 20px 30px;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+    #sprite-logo {
+        width: 250px;
+    }
+}
+
+/* --- BOTTLE SEQUENCE SECTION --- */
+.bottle-sequence-spacer {
+    position: relative;
+    width: 100%;
+    height: 750vh; /* Scroll distance for the full three-phase animation */
+    background-color: #fff; /* Fallback */
+}
+
+.bottle-sequence-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bottle-roll-bg-white {
+    position: absolute;
+    inset: 0;
+    background-color: #fff;
+    z-index: 0;
+}
+
+.bottle-roll-bg-green {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100vh; /* Changed from 70vh to full screen to match the layout request perfectly */
+    width: 0; /* Animated by GSAP */
+    background: radial-gradient(circle at center, #009d35 0%, #007326 100%);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.green-bg-content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.bottle-lay-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 50%, #0a1c0a 0%, #030803 100%);
+    z-index: 2;
+    transform: translateY(100%); /* Start off-screen at bottom */
+}
+
+.bottle-anim-img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    /* We use translateY in CSS initially, but GSAP y might conflict. 
+       Actually, GSAP 'yPercent' or just 'y' combines well. Let's stick to translateY but explicitly set it in GSAP. */
+    transform: translateY(-50%);
+    height: 106vh; /* Increased to 125% of the previous size */
+    width: auto;
+    z-index: 3;
+    /* x, y, and rotation driven by GSAP */
+}
+
+/* --- FINAL UI CONTAINER --- */
+.final-ui-container {
+    position: absolute;
+    inset: 0;
+    z-index: 4; /* Above the bottle */
+    pointer-events: none; /* Let scroll events pass through */
+    padding: 60px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.final-ui-container > * {
+    pointer-events: auto;
+}
+
+.lay-ui-element {
+    opacity: 0; /* Hidden initially, GSAP will reveal */
+    transform: translateX(-100px); /* Start to the left */
+}
+
+.final-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.5fr;
+    grid-template-rows: auto auto;
+    gap: 30px;
+    height: 100%;
+}
+
+.ui-card {
+    background: rgba(0, 15, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid #39ff14;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.15);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.ui-card h1, .ui-card h2 {
+    margin: 0 0 15px 0;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ui-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.neon-text {
+    color: #39ff14;
+}
+
+.card-tag {
+    color: #39ff14;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.outline-btn {
+    background: transparent;
+    border: 1px solid #39ff14;
+    color: #39ff14;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+.outline-btn:hover {
+    background: rgba(57, 255, 20, 0.1);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+}
+
+.card-bottle-img, .card-bottle-img-small {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: auto;
+}
+.card-bottle-img { height: 120%; top: -10%; right: -50px; transform: rotate(15deg); }
+.card-bottle-img-small { height: 100%; right: -30px; transform: rotate(10deg); }
+
+.thirst-card { grid-column: 1 / 2; grid-row: 1 / 2; }
+.story-card { grid-column: 1 / 2; grid-row: 2 / 3; }
+
+.center-title-block {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.subtitle {
+    color: #39ff14;
+    letter-spacing: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 40px 0;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+.icon-row {
+    display: flex;
+    gap: 40px;
+}
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.circle-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.bottom-cards-row {
+    grid-column: 2 / 4;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-content: end;
+}
+
+.small-card {
+    min-height: 250px;
+}
+.small-card h2 { font-size: 1.5rem; }
+.card-action-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #39ff14;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.connecting-line {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.has-bg-img .card-inner {
+    z-index: 2;
+}
+.card-bg-img {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+.ui-card:hover .card-bg-img {
+    opacity: 1;
+}
+.lime-img {
+    width: 60%;
+    left: -10%;
+    bottom: -10%;
+    object-fit: contain;
+}
+.flavors-img {
+    height: 120%;
+    right: 5%;
+    bottom: -10%;
+    object-fit: cover;
+}
+
+/* --- GREEN BACKGROUND CONTENT --- */
+.green-bg-content {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    box-sizing: border-box;
+}
+
+.green-content-inner {
+    color: #fff;
+    max-width: 900px;
+}
+
+.crisp-title {
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    letter-spacing: -2px;
+}
+
+.yellow-text {
+    color: #FFE800;
+}
+.bold-text {
+    font-weight: bold;
+}
+
+.title-icon {
+    font-size: 4rem;
+    vertical-align: top;
+    margin-left: 10px;
+    display: inline-block;
+    transform: rotate(15deg);
+}
+
+.crisp-subtitle {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.crisp-btn {
+    background-color: #A3EA00;
+    color: #00501A;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+.crisp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.crisp-features {
+    display: flex;
+    gap: 40px;
+}
+
+.crisp-feature {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    padding-right: 40px;
+}
+.crisp-feature.border-none {
+    border-right: none;
+    padding-right: 0;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.1);
+}
+
+.crisp-feature h4 {
+    font-size: 1rem;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+}
+
+.crisp-feature p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+/* --- HORIZONTAL SHOWCASE --- */
+.horizontal-showcase-container {
+    position: relative;
+    height: 100vh; /* Changed from 400vh. GSAP pin handles the spacing */
+    background-color: #050505;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.horizontal-showcase-sticky {
+    width: 100%;
+}
+.showcase-title {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 0 0 50px 0;
+    letter-spacing: 2px;
+}
+.horizontal-scroll-track {
+    display: flex;
+    gap: 50px;
+    padding: 0 5vw; /* Changed from 50vw to prevent extreme width overflow */
+    width: max-content;
+}
+.flavor-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flavor-card img {
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+.flavor-card h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.flavor-card p {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* --- PARALLAX SUSTAINABILITY --- */
+.parallax-sustainability {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.parallax-bg {
+    position: absolute;
+    inset: -20%; /* Larger than viewport for parallax */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    filter: brightness(0.6);
+}
+.parallax-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    padding: 0 20px;
+}
+.parallax-content h2 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.parallax-content p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+/* --- FOOTER --- */
+.premium-footer {
+    background-color: #030303;
+    color: #fff;
+    padding: 80px 5% 40px;
+    border-top: 1px solid rgba(57, 255, 20, 0.2);
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+.footer-brand .footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+.footer-brand p {
+    color: #888;
+    margin-bottom: 20px;
+}
+.social-links span {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.social-links span:hover {
+    opacity: 1;
+}
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+.footer-links h4, .footer-newsletter h4 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #39ff14;
+}
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #fff;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 30px;
+    padding: 5px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.input-group input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 15px 20px;
+    color: #fff;
+    outline: none;
+}
+.input-group button {
+    background: #39ff14;
+    color: #000;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.footer-bottom {
+    text-align: center;
+    color: #666;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 40px;
+}
