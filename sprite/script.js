@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 // ==========================================
 const TOTAL_FRAMES = 82; // Set your total frame count here
 const FRAME_EXT = "jpg"; // e.g. "jpg", "png", "webp"
-const FRAME_PREFIX = "frames/ezgif-frame-"; 
+const FRAME_PREFIX = "frames/ezgif-frame-";
 
 // ==========================================
 // STATE & DOM ELEMENTS
@@ -18,7 +18,7 @@ const progressBar = document.getElementById("progress-bar");
 
 const images = [];
 let loadedCount = 0;
-let currentFrameIndex = -1; 
+let currentFrameIndex = -1;
 let animationState = { frame: 1 };
 let renderRequested = false;
 
@@ -35,7 +35,7 @@ const preloadImages = () => {
     for (let i = 1; i <= TOTAL_FRAMES; i++) {
         const img = new Image();
         const src = getImagePath(i);
-        
+
         img.onload = () => {
             loadedCount++;
             const progress = Math.round((loadedCount / TOTAL_FRAMES) * 100);
@@ -46,7 +46,7 @@ const preloadImages = () => {
                 initAnimation();
             }
         };
-        
+
         img.onerror = () => {
             console.error(`Failed to load frame: ${src}`);
             loadedCount++; // Increment anyway to not block the experience
@@ -54,16 +54,16 @@ const preloadImages = () => {
                 initAnimation();
             }
         }
-        
+
         img.src = src;
-        
+
         // Asynchronously decode the image data for jank-free scrubbing
         if (img.decode) {
             img.decode().catch(() => {
                 // ignore errors if decoding fails, it will still draw (just less optimally)
             });
         }
-        
+
         images[i] = img;
     }
 };
@@ -76,7 +76,7 @@ const render = () => {
     let index = Math.round(animationState.frame);
     if (index < 1) index = 1;
     if (index > TOTAL_FRAMES) index = TOTAL_FRAMES;
-    
+
     // Only draw if frame has changed and image is ready
     if (currentFrameIndex !== index && images[index] && images[index].complete) {
         // Wipe canvas and draw new frame
@@ -84,7 +84,7 @@ const render = () => {
         ctx.drawImage(images[index], 0, 0);
         currentFrameIndex = index;
     }
-    
+
     renderRequested = false;
 };
 
@@ -100,7 +100,7 @@ const requestRender = () => {
 // GSAP ANIMATION LOGIC
 // ==========================================
 const initAnimation = () => {
-    
+
     // 1. Setup Canvas Internal Dimensions
     // Use CSS 'object-fit: cover' on the canvas element, so we only need to set 
     // the internal resolution to match the first frame's natural resolution once.
@@ -165,16 +165,21 @@ const initAnimation = () => {
     }, 8.5);
 
     // Initialize subsequent sections to ensure proper ScrollTrigger order
-    initBottleSequence();
+    initBottleSequence(() => {
+        initNewSections();
+    });
 };
 
 // --- BOTTLE SEQUENCE ANIMATION ---
-function initBottleSequence() {
+function initBottleSequence(onComplete) {
     const bottleImg = document.querySelector('.bottle-anim-img');
     const greenTrail = document.querySelector('.bottle-roll-bg-green');
     const layBg = document.querySelector('.bottle-lay-bg');
-    
-    if (!bottleImg || !greenTrail || !layBg) return;
+
+    if (!bottleImg || !greenTrail || !layBg) {
+        if (onComplete) onComplete();
+        return;
+    }
 
     const setupSequence = () => {
         // Respect prefers-reduced-motion
@@ -236,6 +241,8 @@ function initBottleSequence() {
                 duration: 2 // Make it last longer across the scroll
             }, 2);
         }
+
+        if (onComplete) onComplete();
     };
 
     if (bottleImg.complete) {
@@ -251,7 +258,7 @@ preloadImages();
 function initNewSections() {
     // 1. Horizontal Showcase Scroll
     const horizontalScrollTrack = document.querySelector('.horizontal-scroll-track');
-    
+
     if (horizontalScrollTrack) {
         // Calculate how far we need to scroll based on track width and viewport width
         function getScrollAmount() {
@@ -291,5 +298,5 @@ function initNewSections() {
     }
 }
 
-// Initialize the new sections after the DOM is fully ready
-document.addEventListener("DOMContentLoaded", initNewSections);
+// Initialize the new sections dynamically to ensure proper GSAP order
+// document.addEventListener("DOMContentLoaded", initNewSections);
