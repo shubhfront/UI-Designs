@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aline Dental - Comfort & Precision</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+    <img id="flying-tooth" src="assets/tooth.png" alt="" aria-hidden="true">
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="logo">Dental</div>
+            <a href="#" class="btn-pill btn-nav">Book Now</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-wordmark">TOOTH</div>
+
+            <div class="hero-visual">
+
+
+                <img src="assets/tooth.png" alt="Molar tooth" class="tooth-img" style="opacity: 0 !important;">
+
+
+            </div>
+
+            <div class="corner-text corner-left">
+                <strong>Unrivaled Comfort</strong><br>
+                Procedures designed to feel like nothing ever happened.
+            </div>
+            <div class="corner-text corner-right">
+                <strong>Elite Specialists</strong><br>
+                Board-certified experts in high-precision implantology.
+            </div>
+        </section>
+
+        <section class="doctor-section">
+            <div class="doctor-content">
+                <p class="eyebrow">IN EXPERT HANDS</p>
+                <h2>You're never just a procedure.</h2>
+                <p class="body-copy">
+                    The same dentist walks you through every step before it happens. Implants are placed by hand under
+                    guided precision, ensuring minimal disruption. Patients stay continuously monitored and comfortable
+                    from the initial numbing to the final check, allowing for a completely seamless recovery.
+                </p>
+                <a class="text-link" href="#">Meet our dental team &rarr;</a>
+            </div>
+            <div class="doctor-media">
+                <img src="assets/patient.png" alt="Dentist treating a patient in the chair">
+                <!-- Nudge top/left % visually to land exactly over the doctor's hands in patient.png -->
+                <div id="tooth-end-marker"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 03: Exploded Implant View -->
+        <section class="implants-section">
+            <div class="implants-pin">
+                <div class="implants-stage">
+                    <div class="implants-header">
+                        <p class="eyebrow">THE FOUNDATION</p>
+                        <h2>The Implant, Piece by Piece.</h2>
+                    </div>
+                    <div id="tooth-implants-marker"></div>
+
+                    <img id="implant-abutment" class="implant-part" src="assets/implant-abutment.png"
+                        alt="Implant abutment">
+                    <img id="implant-fixture" class="implant-part" src="assets/implant-fixture.png"
+                        alt="Implant fixture screw">
+
+                    <!-- Left Labels -->
+                    <div class="implant-label label-left" id="label-internal">
+                        <span class="label-tag">INTERNAL CONNECTION</span>
+                    </div>
+                    <div class="implant-label label-left" id="label-threads">
+                        <span class="label-tag">PRECISION-MILLED THREADS</span>
+                    </div>
+
+                    <!-- Right Labels -->
+                    <div class="implant-label label-right" id="label-crown">
+                        <span class="label-tag">CROWN</span>
+                    </div>
+                    <div class="implant-label label-right" id="label-abutment">
+                        <span class="label-tag">TITANIUM ABUTMENT</span>
+                    </div>
+                    <div class="implant-label label-right" id="label-fixture">
+                        <span class="label-tag">FIXTURE</span>
+                    </div>
+
+                    <div class="implant-info-block">
+                        <h3 class="info-title">Engineered to Last</h3>
+                        <p class="info-desc">
+                            Our dental implants use aerospace-grade titanium that fuses directly with your natural
+                            jawbone over time, creating a permanent, rock-solid foundation. This osteointegration
+                            process ensures the implant looks, feels, and functions exactly like a natural tooth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: BRACES -->
+        <section class="braces-section">
+            <div class="braces-media">
+                <img src="assets/braces.png" alt="Close-up of teeth with braces applied">
+                <!-- Nudge these top/left percentages to perfectly center over a real tooth in the image -->
+                <div id="tooth-braces-marker" style="top: 45%; left: 70%;"></div>
+            </div>
+            <div class="braces-content">
+                <p class="eyebrow">PRECISION ORTHODONTICS</p>
+                <h2>Every wire, considered.</h2>
+                <p class="body-copy">Brackets are custom-mapped to each tooth's exact position before a single wire is
+                    placed. Movement is calculated in small, precise increments so pressure never spikes, and edges are
+                    smoothed and polished so nothing catches on the inside of the mouth. The result is a fully aligned
+                    bite and a straighter smile by the end of treatment, not just straighter-looking teeth.</p>
+                <p class="stat-tag">AVERAGE TREATMENT: 14–18 MONTHS</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5: BOOKING -->
+        <section class="booking-section">
+            <img src="assets/dental.png" alt="" class="booking-bg-text" aria-hidden="true">
+            <div class="booking-media">
+                <img src="assets/tooth.png" alt="Clean dental tooth graphic">
+            </div>
+            <div class="booking-content">
+                <p class="eyebrow">TAKE THE NEXT STEP</p>
+                <h2>Book a Consultation.</h2>
+                <form class="booking-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="fullName">FULL NAME</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMAIL ADDRESS</label>
+                        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">PHONE NUMBER</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                    </div>
+                    <button type="submit" class="submit-btn">SCHEDULE APPOINTMENT</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECTION 6: HOURS FOOTER -->
+        <section class="hours-section">
+            <span>MON–FRI 9:00 AM – 7:00 PM</span>
+            <span class="divider">•</span>
+            <span>SAT 10:00 AM – 4:00 PM</span>
+            <span class="divider">•</span>
+            <span>SUN CLOSED</span>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <p class="footer-logo">Aline Dental</p>
+                <p class="footer-tagline">Surgery that feels like nothing happened.</p>
+            </div>
+            <div class="footer-links">
+                <p class="footer-heading">CLINIC</p>
+                <a href="#">Home</a>
+                <a href="#">Implants</a>
+                <a href="#">Braces</a>
+                <a href="#">Meet the Team</a>
+            </div>
+            <div class="footer-contact">
+                <p class="footer-heading">VISIT</p>
+                <p>123 Clinic Ave, New York</p>
+                <p>(555) 123-4567</p>
+                <p>hello@alinedental.com</p>
+            </div>
+            <div class="footer-cta">
+                <p class="footer-heading">BOOK</p>
+                <a class="footer-button btn-pill" href="#">Book a Consult</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Aline Dental. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="LinkedIn">LI</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script_v2.js?v=3"></script>
+</body>
+
+</html>
