@@ -91,6 +91,7 @@
         </div>
     </section>
 
+
     <!-- Section 3: Software Skills -->
     <section class="software-skills">
         <!-- Nebula and particles background -->
@@ -126,7 +127,7 @@
                             <img src="assets/ai.svg" alt="Illustrator" class="skill-icon ai-icon">
                         </div>
                         <div class="skill-item" data-name="CapCut" style="--i:5;">
-                            <img src="assets/capcut.png" alt="CapCut" class="skill-icon cc-icon">
+                            <img src="assets/cc.svg" alt="CapCut" class="skill-icon cc-icon">
                         </div>
                     </div>
                 </div>
@@ -165,42 +166,30 @@
                     <p>Immersive audioscapes</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Section 5: Video Showcase Strip -->
-    <section class="video-strip slide-in">
-        <div class="strip-container">
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=800');">
+            <div class="card card-5"
+                style="background-image: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=800');">
+                <div class="card-content">
+                    <h3>COLOR GRADING</h3>
+                    <p>Cinematic color enhancement</p>
+                </div>
             </div>
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800');">
-            </div>
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800');">
-            </div>
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800');">
-            </div>
-            <!-- Duplicated for infinite scroll loop -->
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=800');">
-            </div>
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800');">
-            </div>
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800');">
-            </div>
-            <div class="strip-item"
-                style="background-image: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800');">
+            <div class="card card-6"
+                style="background-image: url('https://images.unsplash.com/photo-1581337204873-ef36aa186caa?q=80&w=800');">
+                <div class="card-content">
+                    <h3>TRANSITIONS</h3>
+                    <p>Seamless visual flow</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 6: CTA & Footer -->
-    <section class="cta-footer slide-in">
+    <!-- Section 5: Full Screen Aura Video -->
+    <section class="aura-video-section slide-in">
+        <video class="aura-video" id="aura-vid" src="aura.mp4" autoplay loop muted playsinline disablePictureInPicture></video>
+    </section>
+
+    <!-- Section 6: Google Search Effect -->
+    <section class="search-effect-section slide-in">
         <div class="search-bar">
             <span class="icon-search">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -208,7 +197,9 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
             </span>
-            <input type="text" value="Need Pro Video Editing|" readonly>
+            <div class="fake-input-container">
+                <span id="typewriter-text"></span><span class="blinking-cursor">|</span>
+            </div>
             <span class="icon-mic">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
@@ -217,9 +208,10 @@
                 </svg>
             </span>
         </div>
-        <div class="stats slide-in delay-1">
-            <h2>200+ Satisfied Clients</h2>
-        </div>
+    </section>
+
+    <!-- Section 7: CTA & Footer -->
+    <section class="cta-footer slide-in">
         <div class="final-logo slide-in delay-2">
             <h1 class="monogram">DTX</h1>
             <h1 class="studio-text">Studio</h1>
