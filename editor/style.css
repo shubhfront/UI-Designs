@@ -251,6 +251,22 @@ body {
     color: #aaa;
 }
 
+/* Aura Video Section */
+.aura-video-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.aura-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
 /* Antigravity Software Skills */
 .software-skills {
     position: relative;
@@ -406,7 +422,7 @@ body {
 
 /* Project Showcase Card Stack */
 .project-showcase {
-    height: 400vh;
+    height: 600vh;
     position: relative;
 }
 
@@ -426,6 +442,7 @@ body {
     max-width: 800px;
     height: 60vh;
     border-radius: 30px;
+    background-color: #222;
     background-size: cover;
     background-position: center;
     box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px var(--neon-blue-dim);
@@ -494,6 +511,15 @@ body {
     100% { transform: translateX(calc(-50% - 10px)); }
 }
 
+/* Search Effect Section */
+.search-effect-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
 /* CTA & Footer */
 .cta-footer {
     min-height: 100vh;
@@ -518,15 +544,24 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.search-bar input {
+.search-bar .fake-input-container {
     flex: 1;
-    background: transparent;
-    border: none;
     color: var(--text-main);
     font-size: 1.2rem;
     font-weight: 700;
     margin: 0 15px;
-    outline: none;
+    display: flex;
+    align-items: center;
+}
+
+.blinking-cursor {
+    animation: blink 1s step-end infinite;
+    font-weight: 300;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .search-bar .icon-search, .search-bar .icon-mic {
