@@ -157,12 +157,38 @@ cards.forEach((card, i) => {
         y: -30 * i,
         filter: "brightness(0.3)",
         ease: "none"
-    }, i);
+    }, "step" + i);
 
     // Current card slides up
     timeline.to(card, {
         y: i * 30, // Stack slightly offset
         scale: 1,
         ease: "none"
-    }, i);
+    }, "step" + i);
 });
+
+// Aura Video Speed Control
+const auraVid = document.getElementById('aura-vid');
+if (auraVid) {
+    auraVid.playbackRate = 0.5;
+}
+
+// Google Search Effect Typewriter
+const typewriterText = document.getElementById('typewriter-text');
+const fullText = "need pro video editor";
+if (typewriterText) {
+    let typeObj = { length: 0 };
+    gsap.to(typeObj, {
+        length: fullText.length,
+        duration: 2,
+        ease: "steps(" + fullText.length + ")",
+        scrollTrigger: {
+            trigger: '.search-effect-section',
+            start: 'top 50%',
+            once: true
+        },
+        onUpdate: () => {
+            typewriterText.innerText = fullText.substring(0, Math.floor(typeObj.length));
+        }
+    });
+}
