@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Landing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Outfit:wght@300;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main-wrapper">
+        <div class="hero-section">
+            <!-- Centered massive text -->
+            <h1 class="massive-text" data-text="TASTE">TASTE</h1>
+        </div>
+        
+        <div class="pizza-container">
+            <img src="assets/pizza.png" alt="Delicious Artisan Pizza" class="pizza-image">
+        </div>
+
+        <section class="craft-section">
+            <div class="content-left">
+                <h2>The Art of Perfection</h2>
+                <p>Experience the authentic taste of artisan dough, hand-stretched and baked in our wood-fired oven. We source only the freshest ingredients to craft a masterpiece that delights every sense.</p>
+                <a href="#menu" class="cta-button">Explore Our Menu</a>
+            </div>
+            <div class="pizza-target-craft"></div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="gallery-overlay"></div>
+            <div class="gallery-header">
+                <span class="cursive-subtitle">
+                    <span class="line-deco"></span>
+                    Wood-Fired Perfection
+                    <span class="line-deco"></span>
+                </span>
+                <h2>OUR MASTERPIECES</h2>
+                <div class="header-divider">
+                    <svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 22 12 12"/></svg>
+                </div>
+                <p>Curated flavors from our wood-fired oven</p>
+            </div>
+            
+            <div class="pizza-grid">
+                <!-- Left Pizza (Position 1) -->
+                <div class="pizza-card theme-green">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 22 12 12"/></svg>
+                    </div>
+                    <div class="pizza-img-wrapper">
+                        <div class="pizza-plate"></div>
+                        <!-- Using generated local asset -->
+                        <img src="assets/margherita.png" alt="Classic Margherita" class="static-pizza">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>Classic Margherita</h3>
+                        <div class="dot-separator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <p>Fresh mozzarella, San Marzano tomatoes, and organic basil.</p>
+                        <a href="#" class="pizza-price">$18.50 <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Middle Pizza (Position 2 - Placeholder for persistent pizza) -->
+                <div class="pizza-card center-card theme-gold">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V10a8 8 0 1 0-16 0v2"/><path d="M8.5 10a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/><path d="M15.5 10a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0Z"/><path d="M12 12v10"/><path d="M8 22h8"/></svg>
+                    </div>
+                    <div class="pizza-img-wrapper empty-slot">
+                        <div class="pizza-plate"></div>
+                    </div>
+                    <div class="pizza-info">
+                        <h3>Signature Truffle</h3>
+                        <div class="dot-separator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <p>Roasted mushrooms, truffle oil, ricotta, and thyme.</p>
+                        <a href="#" class="pizza-price">$24.00 <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Right Pizza (Position 3) -->
+                <div class="pizza-card theme-red">
+                    <div class="card-icon-wrapper">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.8 4A6.3 8.7 0 0 1 20 9"/><path d="M9 20h2.4a7.4 7.4 0 0 0 7.6-7.4A8.4 8.4 0 0 0 18.8 4H18c-3 0-5.7 1-7.9 3.2L5.8 11.5a5.1 5.1 0 0 0-1.4 3.7c.3 1.8 1.8 3.3 3.6 3.6 1.3.2 2.5-.2 3.5-.9l4.5-4.5"/><path d="M13 10l-1-1"/></svg>
+                    </div>
+                    <div class="pizza-img-wrapper">
+                        <div class="pizza-plate"></div>
+                        <!-- Using generated local asset -->
+                        <img src="assets/pepperoni.png" alt="Spicy Pepperoni" class="static-pizza">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>Spicy Pepperoni</h3>
+                        <div class="dot-separator"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                        <p>Artisan pepperoni, hot honey drizzle, and crushed red pepper.</p>
+                        <a href="#" class="pizza-price">$21.00 <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chef-section">
+            <div class="chef-container">
+                <div class="chef-image-wrapper">
+                    <!-- The animated pizza will land on the chef's hands / pizza board -->
+                    <img src="assets/lady.png" alt="Chef Isabella Rossi" class="chef-image">
+                    <div class="chef-pizza-target"></div>
+                </div>
+                <div class="chef-content">
+                    <h2>THE ARTISAN BEHIND THE SLICE</h2>
+                    <div class="header-divider left-aligned">
+                        <svg class="leaf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 22 12 12"/></svg>
+                    </div>
+                    <p>Chef Isabella's passion lies in the delicate balance of fire, flour, and time. With over 20 years of dedication to traditional Neapolitan techniques, she carefully curates every ingredient—from organic basil to imported San Marzano tomatoes. Her wood-fired creations are not just pizzas; they are a culinary canvas showcasing true Italian craftsmanship and an unrelenting pursuit of absolute perfection.</p>
+                    <span class="chef-signature">— Chef Isabella Rossi</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

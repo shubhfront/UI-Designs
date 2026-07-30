@@ -1,0 +1,582 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
+
+.main-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Ensure pizza doesn't cause horizontal scrolling while animating */
+}
+
+.hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* Fills the entire screen */
+    background: radial-gradient(farthest-corner at 20% 0%, #fff8e1 0%, #ffbc71 40%, #d84b06 75%, #6a0d00 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.massive-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24vw;
+    font-weight: 700; /* Made less bold */
+    color: #c67a4d;
+    filter: blur(12px);
+    opacity: 0.9;
+    position: relative;
+    z-index: 5;
+    text-transform: uppercase;
+    letter-spacing: -0.06em; /* Brought letters closer together */
+    margin-top: -15vh;
+    transform: scaleY(1.4); /* Stretched the height to make it taller */
+}
+
+.pizza-container {
+    position: fixed;
+    /* Place it at the bottom edge of the home screen */
+    top: 100%;
+    left: 50%;
+    /* Center it perfectly */
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    max-width: 1200px;
+    min-width: 600px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.pizza-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Soft shadow to give a premium feel against the white background */
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4));
+}
+
+/* SECTION 2: CRAFT */
+.craft-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 75% 50%, #2a0b00 0%, #0a0200 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10vw;
+    overflow: hidden;
+}
+
+.pizza-target-craft {
+    width: 45%;
+    height: 50vh;
+}
+
+/* Subtle decorative glow in the background of craft section */
+.craft-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(255,188,113,0.08) 0%, rgba(0,0,0,0) 70%);
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.content-left {
+    width: 45%;
+    color: #fff;
+    z-index: 5;
+    position: relative;
+    /* Adding subtle glass effect to text container */
+    background: rgba(20, 5, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 188, 113, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.content-left h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 4.5vw;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #fff8e1 0%, #ffbc71 50%, #d84b06 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.content-left p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3vw;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    max-width: 95%;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 48px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2vw;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(45deg, #d84b06, #ffbc71);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(216, 75, 6, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 188, 113, 0.5);
+    background: linear-gradient(45deg, #ffbc71, #d84b06);
+}
+
+/* SECTION 3: GALLERY */
+.gallery-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background: url('assets/gallery-bg.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6vh 5vw 4vh; /* Reduced padding to fit screen */
+    z-index: 2;
+    justify-content: center; /* Center content vertically */
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(10,2,0,0.95) 0%, rgba(10,2,0,0.7) 50%, rgba(10,2,0,0.95) 100%);
+    z-index: 1;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 4vh; /* Reduced margin */
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cursive-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2vw;
+    color: #ffbc71;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.line-deco {
+    width: 40px;
+    height: 1px;
+    background: #ffbc71;
+    position: relative;
+}
+
+.line-deco::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 1px;
+    background: #ffbc71;
+    top: -4px;
+    right: 0;
+    transform: rotate(45deg);
+}
+
+.line-deco:first-child::after {
+    left: 0; right: auto; transform: rotate(-45deg);
+}
+
+.gallery-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 4vw;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 20px rgba(255, 188, 113, 0.3);
+}
+
+.header-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+    color: #8db562;
+}
+
+.header-divider::before, .header-divider::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+}
+
+.leaf-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.gallery-header p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2vw;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+    z-index: 5;
+}
+
+/* Themes */
+.theme-green { --theme-color: #8db562; --theme-bg: rgba(141, 181, 98, 0.15); --btn-bg: #637c47; }
+.theme-gold { --theme-color: #d19a4e; --theme-bg: rgba(209, 154, 78, 0.15); --btn-bg: #98692c; }
+.theme-red { --theme-color: #d64a43; --theme-bg: rgba(214, 74, 67, 0.15); --btn-bg: #98332d; }
+
+.pizza-card {
+    background: linear-gradient(180deg, #1f1f1f 0%, #0a0a0a 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 25px; /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 10px 40px var(--theme-bg);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    border-bottom: 2px solid var(--theme-color);
+    position: relative;
+}
+
+.pizza-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--theme-color);
+}
+
+.card-icon-wrapper {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-color);
+    opacity: 0.8;
+}
+
+.card-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.pizza-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* Reduced margin */
+    position: relative;
+}
+
+.pizza-plate {
+    position: absolute;
+    top: 5%; left: 5%; right: 5%; bottom: 5%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #3a3a3a 0%, #1a1a1a 70%, #0a0a0a 100%);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 20px 30px rgba(0,0,0,0.8);
+    border: 1px solid #444;
+    z-index: 1;
+}
+
+.static-pizza {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    clip-path: circle(48% at 50% 50%);
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.pizza-card:hover .static-pizza {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.pizza-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2vw; /* Slightly reduced */
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.dot-separator {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px; /* Reduced margin */
+    justify-content: center;
+}
+
+.dot-separator .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    opacity: 0.9;
+}
+
+.pizza-info p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95vw; /* Slightly reduced */
+    color: #a0a0a0;
+    line-height: 1.5;
+    margin-bottom: 20px; /* Reduced margin */
+}
+
+.pizza-price {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2vw;
+    font-weight: 700;
+    color: #fff;
+    background: var(--btn-bg);
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.1) 100%);
+    padding: 12px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.pizza-price span {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.pizza-price:hover {
+    filter: brightness(1.2);
+}
+
+.pizza-price:hover span {
+    transform: translateX(4px);
+}
+
+/* SECTION 4: CHEF */
+.chef-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background: #050100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 5vw;
+    z-index: 2;
+}
+
+.chef-container {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    gap: 5vw;
+}
+
+.chef-image-wrapper {
+    flex: 1;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    display: flex;
+}
+
+.chef-pizza-target {
+    position: absolute;
+    top: 60%;
+    left: 78%; /* The extended hand is on the right side */
+    width: 32%; /* Much smaller to fit in the hand */
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.chef-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.chef-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chef-content h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 4vw;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 5px;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 20px rgba(255, 188, 113, 0.2);
+}
+
+.header-divider.left-aligned {
+    justify-content: flex-start;
+    margin-bottom: 25px;
+}
+
+.header-divider.left-aligned::before {
+    display: none;
+}
+
+.chef-content p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15vw;
+    color: #a0a0a0;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.chef-signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3vw;
+    color: #ffbc71;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .craft-section {
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 10vh;
+    }
+
+    .content-left {
+        width: 100%;
+        text-align: center;
+        margin-top: -10vh;
+        padding: 30px 20px;
+    }
+    
+    .content-left h2 {
+        font-size: 9vw;
+    }
+    
+    .content-left p {
+        font-size: 4vw;
+        max-width: 100%;
+    }
+    
+    .cta-button {
+        font-size: 4vw;
+        padding: 14px 32px;
+    }
+    
+    .gallery-section {
+        padding: 10vh 5vw 5vh;
+    }
+
+    .pizza-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .gallery-header h2 {
+        font-size: 9vw;
+    }
+    
+    .cursive-subtitle {
+        font-size: 6vw;
+    }
+
+    .gallery-header p {
+        font-size: 4vw;
+    }
+    
+    .pizza-info h3 {
+        font-size: 7vw;
+    }
+    
+    .pizza-info p {
+        font-size: 4vw;
+    }
+    
+    .pizza-price {
+        font-size: 4.5vw;
+        padding: 12px 25px;
+    }
+    
+    .card-icon-wrapper {
+        top: 15px;
+        left: 15px;
+    }
+
+    .chef-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .header-divider.left-aligned {
+        justify-content: center;
+    }
+    
+    .chef-content h2 { font-size: 8vw; }
+    .chef-content p { font-size: 4vw; }
+    .chef-signature { font-size: 8vw; }
+}
